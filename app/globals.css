@@ -4,60 +4,64 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  ZWS Cloud — Premium Cloud Infrastructure Theme
+  ZWS Cloud — Premium Cloud Hosting Theme
   Palette (5 colors total):
-    1. Background ink    - near-black navy (#0a0b0d)
-    2. Foreground        - off-white (#f5f5f4)
-    3. Muted neutral     - slate gray (#a3a3a3)
-    4. Surface border    - charcoal (#1c1d20)
-    5. Accent brand      - cyan/teal (#14b8a6)
+    1. Background: near-black ink (#0a0b0d)
+    2. Foreground/Neutral-light: off-white (#f5f5f4)
+    3. Muted neutral: slate gray (#a3a3a3)
+    4. Border/surface neutral: charcoal (#1c1d20)
+    5. Accent brand: teal (#14b8a6)
 */
 
 :root {
+  /* Base surfaces */
   --background: oklch(0.145 0.005 260);
   --foreground: oklch(0.97 0.005 100);
 
   --card: oklch(0.18 0.005 260);
   --card-foreground: oklch(0.97 0.005 100);
 
-  --popover: oklch(0.19 0.005 260);
+  --popover: oklch(0.18 0.005 260);
   --popover-foreground: oklch(0.97 0.005 100);
 
+  /* Primary = near-white (for primary buttons on dark bg) */
   --primary: oklch(0.97 0.005 100);
   --primary-foreground: oklch(0.17 0.005 260);
 
+  /* Secondary = soft charcoal */
   --secondary: oklch(0.24 0.006 260);
   --secondary-foreground: oklch(0.97 0.005 100);
 
   --muted: oklch(0.22 0.005 260);
   --muted-foreground: oklch(0.68 0.008 260);
 
-  --accent: oklch(0.78 0.13 190);
+  /* Accent = teal (brand) */
+  --accent: oklch(0.72 0.14 180);
   --accent-foreground: oklch(0.17 0.005 260);
 
-  --destructive: oklch(0.64 0.22 25);
+  --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.97 0.005 100);
 
   --border: oklch(0.26 0.006 260);
   --input: oklch(0.26 0.006 260);
-  --ring: oklch(0.78 0.13 190);
+  --ring: oklch(0.72 0.14 180);
 
-  --chart-1: oklch(0.78 0.13 190);
+  --chart-1: oklch(0.72 0.14 180);
   --chart-2: oklch(0.68 0.1 210);
   --chart-3: oklch(0.6 0.08 240);
   --chart-4: oklch(0.78 0.1 160);
   --chart-5: oklch(0.55 0.05 260);
 
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
   --sidebar: oklch(0.17 0.005 260);
   --sidebar-foreground: oklch(0.97 0.005 100);
-  --sidebar-primary: oklch(0.78 0.13 190);
+  --sidebar-primary: oklch(0.72 0.14 180);
   --sidebar-primary-foreground: oklch(0.17 0.005 260);
   --sidebar-accent: oklch(0.24 0.006 260);
   --sidebar-accent-foreground: oklch(0.97 0.005 100);
   --sidebar-border: oklch(0.26 0.006 260);
-  --sidebar-ring: oklch(0.78 0.13 190);
+  --sidebar-ring: oklch(0.72 0.14 180);
 }
 
 .dark {
@@ -65,7 +69,7 @@
   --foreground: oklch(0.97 0.005 100);
   --card: oklch(0.18 0.005 260);
   --card-foreground: oklch(0.97 0.005 100);
-  --popover: oklch(0.19 0.005 260);
+  --popover: oklch(0.18 0.005 260);
   --popover-foreground: oklch(0.97 0.005 100);
   --primary: oklch(0.97 0.005 100);
   --primary-foreground: oklch(0.17 0.005 260);
@@ -73,13 +77,13 @@
   --secondary-foreground: oklch(0.97 0.005 100);
   --muted: oklch(0.22 0.005 260);
   --muted-foreground: oklch(0.68 0.008 260);
-  --accent: oklch(0.78 0.13 190);
+  --accent: oklch(0.72 0.14 180);
   --accent-foreground: oklch(0.17 0.005 260);
-  --destructive: oklch(0.64 0.22 25);
+  --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.97 0.005 100);
   --border: oklch(0.26 0.006 260);
   --input: oklch(0.26 0.006 260);
-  --ring: oklch(0.78 0.13 190);
+  --ring: oklch(0.72 0.14 180);
 }
 
 @theme inline {
@@ -129,138 +133,31 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
     font-feature-settings: 'ss01', 'cv11';
   }
   html {
     scroll-behavior: smooth;
   }
-  /* Thin, refined focus ring for keyboard users */
-  :focus-visible {
-    outline: 2px solid color-mix(in oklch, var(--accent) 80%, transparent);
-    outline-offset: 2px;
-    border-radius: 6px;
-  }
 }
 
-/*
-  Premium ZWS utilities
-  - Glass cards: translucent surface over the dotted canvas
-  - Accent glow:  soft teal bloom for CTAs, active states
-  - Terminal log animation
-*/
+/* Subtle grid background utility */
 @layer utilities {
-  /* Primary card style used site-wide (glassmorphic). */
-  .glass-card {
-    background-color: color-mix(in oklch, var(--card) 55%, transparent);
-    border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
-    box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, white 5%, transparent),
-      0 1px 2px 0 rgb(0 0 0 / 0.3);
-    transition:
-      border-color 240ms ease,
-      background-color 240ms ease,
-      box-shadow 240ms ease,
-      transform 240ms ease;
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--border) 60%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--border) 60%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-
-  .glass-card:hover {
-    border-color: color-mix(in oklch, var(--accent) 45%, var(--border));
-    background-color: color-mix(in oklch, var(--card) 70%, transparent);
-    box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, white 6%, transparent),
-      0 8px 30px -8px color-mix(in oklch, var(--accent) 22%, transparent),
-      0 2px 4px 0 rgb(0 0 0 / 0.3);
-  }
-
-  /* Standalone glass panel without hover affordance. */
-  .glass-panel {
-    background-color: color-mix(in oklch, var(--card) 55%, transparent);
-    border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
-    box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, white 5%, transparent),
-      0 1px 2px 0 rgb(0 0 0 / 0.3);
-  }
-
-  /* Highlighted / popular card variant. */
-  .glass-card-accent {
-    border-color: color-mix(in oklch, var(--accent) 55%, var(--border));
-    box-shadow:
-      inset 0 1px 0 0 color-mix(in oklch, white 6%, transparent),
-      0 0 0 1px color-mix(in oklch, var(--accent) 25%, transparent),
-      0 10px 40px -10px color-mix(in oklch, var(--accent) 30%, transparent);
-  }
-
-  /* Soft accent bloom layer (for hero, CTA, terminal). */
-  .accent-glow::before {
-    content: '';
-    position: absolute;
-    inset: -60px;
-    background: radial-gradient(
-      55% 55% at 50% 20%,
-      color-mix(in oklch, var(--accent) 25%, transparent) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
-    z-index: -1;
-    filter: blur(40px);
-  }
-
-  /* Subtle separating gradient (instead of hard borders). */
-  .soft-edge {
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      color-mix(in oklch, var(--border) 40%, transparent) 50%,
-      transparent
-    );
-  }
-
-  /* Legacy: dot tile (kept for background fallback usage) */
   .bg-dot {
     background-image: radial-gradient(
       color-mix(in oklch, var(--border) 80%, transparent) 1px,
       transparent 1px
     );
-    background-size: 22px 22px;
+    background-size: 20px 20px;
   }
-
   .mask-fade-b {
     -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  }
-
-  /* Terminal blinking caret */
-  .term-caret::after {
-    content: '';
-    display: inline-block;
-    width: 0.5ch;
-    height: 1em;
-    margin-left: 2px;
-    background: currentColor;
-    vertical-align: -2px;
-    animation: term-blink 1s step-end infinite;
-  }
-  @keyframes term-blink {
-    50% { opacity: 0; }
-  }
-
-  /* Terminal log entry fade-in */
-  .term-fade-in {
-    animation: term-fade-in 260ms ease both;
-  }
-  @keyframes term-fade-in {
-    from { opacity: 0; transform: translateY(4px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Hide legacy section divider lines without deleting classes elsewhere */
-  .no-section-divider {
-    border-top: 0 !important;
-    border-bottom: 0 !important;
   }
 }

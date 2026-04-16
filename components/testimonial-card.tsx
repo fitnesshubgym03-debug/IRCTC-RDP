@@ -16,15 +16,15 @@ export function TestimonialCard({
   return (
     <figure
       className={cn(
-        "glass-card flex h-full flex-col justify-between rounded-2xl p-6",
+        "flex h-full flex-col justify-between rounded-xl border border-border bg-card p-6",
         className
       )}
     >
       <blockquote className="text-pretty text-base leading-relaxed text-foreground">
         &ldquo;{quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-accent/30 to-accent/5 text-sm font-semibold text-foreground ring-1 ring-accent/30">
+      <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-sm font-semibold text-foreground">
           {author.charAt(0)}
         </div>
         <div className="text-sm">

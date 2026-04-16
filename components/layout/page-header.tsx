@@ -15,14 +15,18 @@ export function PageHeader({
   children?: React.ReactNode
 }) {
   return (
-    <section className={cn("relative overflow-hidden", className)}>
-      {/* Soft ambient glow instead of hard divider */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
+    <section
+      className={cn(
+        "relative overflow-hidden border-b border-border/60 bg-card/30",
+        className
+      )}
+    >
+      <div className="pointer-events-none absolute inset-0 bg-grid opacity-30 mask-fade-b" />
       <Container className="relative py-16 sm:py-20 lg:py-24">
         <div className="flex max-w-3xl flex-col gap-4">
           {eyebrow && (
-            <div className="glass-panel inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_currentColor] text-accent" />
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {eyebrow}
             </div>
           )}

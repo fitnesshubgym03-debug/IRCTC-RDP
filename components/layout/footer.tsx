@@ -6,61 +6,59 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="relative mt-24">
-      <Container className="pb-12 pt-16">
-        <div className="glass-panel rounded-2xl p-8 md:p-10">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
-            <div className="col-span-2 md:col-span-2">
-              <Logo />
-              <p className="mt-4 max-w-xs text-sm text-muted-foreground text-pretty">
-                High-performance VPS, cloud hosting, and custom infrastructure.
-                Built for teams who care about reliability and transparent
-                pricing.
-              </p>
-              <div className="mt-6 flex items-center gap-2">
-                <SocialIcon href={siteConfig.social.twitter} label="Twitter">
-                  <Twitter className="h-4 w-4" />
-                </SocialIcon>
-                <SocialIcon href={siteConfig.social.github} label="GitHub">
-                  <Github className="h-4 w-4" />
-                </SocialIcon>
-                <SocialIcon href={siteConfig.social.linkedin} label="LinkedIn">
-                  <Linkedin className="h-4 w-4" />
-                </SocialIcon>
-              </div>
+    <footer className="mt-24 border-t border-border/60 bg-background/70 backdrop-blur-sm">
+      <Container className="py-16">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
+          <div className="col-span-2 md:col-span-2">
+            <Logo />
+            <p className="mt-4 max-w-xs text-sm text-muted-foreground text-pretty">
+              High-performance VPS, cloud hosting, and custom infrastructure.
+              Built for teams who care about reliability and transparent
+              pricing.
+            </p>
+            <div className="mt-6 flex items-center gap-2">
+              <SocialIcon href={siteConfig.social.twitter} label="Twitter">
+                <Twitter className="h-4 w-4" />
+              </SocialIcon>
+              <SocialIcon href={siteConfig.social.github} label="GitHub">
+                <Github className="h-4 w-4" />
+              </SocialIcon>
+              <SocialIcon href={siteConfig.social.linkedin} label="LinkedIn">
+                <Linkedin className="h-4 w-4" />
+              </SocialIcon>
             </div>
-
-            {Object.entries(footerNav).map(([section, items]) => (
-              <div key={section}>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
-                  {section}
-                </h3>
-                <ul className="mt-4 space-y-2.5">
-                  {items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
           </div>
 
-          <div className="mt-10 flex flex-col items-start justify-between gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center">
-            <p>
-              &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-              reserved.
-            </p>
-            <p>
-              Template site. All legal pages, claims, and infrastructure details
-              are placeholders for review.
-            </p>
-          </div>
+          {Object.entries(footerNav).map(([section, items]) => (
+            <div key={section}>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">
+                {section}
+              </h3>
+              <ul className="mt-4 space-y-2.5">
+                {items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center">
+          <p>
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+            reserved.
+          </p>
+          <p>
+            Template site. All legal pages, claims, and infrastructure details
+            are placeholders for review.
+          </p>
         </div>
       </Container>
     </footer>
@@ -80,7 +78,7 @@ function SocialIcon({
     <Link
       href={href}
       aria-label={label}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border/70 bg-card/40 text-muted-foreground transition-all hover:border-accent/50 hover:text-accent"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
     >
       {children}
     </Link>

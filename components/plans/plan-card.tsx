@@ -19,12 +19,14 @@ export function PlanCard({
   return (
     <div
       className={cn(
-        "glass-card relative flex flex-col rounded-2xl p-6",
-        plan.popular && "glass-card-accent"
+        "relative flex flex-col rounded-xl border bg-card p-6 transition-colors",
+        plan.popular
+          ? "border-accent/60 ring-1 ring-accent/30"
+          : "border-border hover:border-foreground/20"
       )}
     >
       {plan.popular && (
-        <div className="absolute -top-3 left-6 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-medium text-accent-foreground shadow-[0_0_20px_-4px_currentColor]">
+        <div className="absolute -top-3 left-6 rounded-full bg-accent px-2.5 py-0.5 text-[11px] font-medium text-accent-foreground">
           Most popular
         </div>
       )}
@@ -42,7 +44,7 @@ export function PlanCard({
         <span className="text-sm text-muted-foreground">/mo</span>
       </div>
 
-      <dl className="mt-6 grid grid-cols-2 gap-4 rounded-xl bg-background/30 p-4 text-sm backdrop-blur-sm">
+      <dl className="mt-6 grid grid-cols-2 gap-3 border-y border-border py-5 text-sm">
         <Spec label="vCPU" value={plan.vcpu.toString()} />
         <Spec label="RAM" value={`${plan.ramGB} GB`} />
         <Spec label="Storage" value={`${plan.storageGB} GB NVMe`} />

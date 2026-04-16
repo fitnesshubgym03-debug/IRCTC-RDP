@@ -106,7 +106,7 @@ export function Configurator() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
       <div className="flex flex-col gap-6">
-        <div className="glass-panel rounded-2xl p-6 sm:p-8">
+        <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Compute
           </h2>
@@ -144,7 +144,7 @@ export function Configurator() {
           </div>
         </div>
 
-        <div className="glass-panel rounded-2xl p-6 sm:p-8">
+        <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Network & image
           </h2>
@@ -215,7 +215,7 @@ export function Configurator() {
       </div>
 
       <aside className="lg:sticky lg:top-24 lg:self-start">
-        <div className="glass-panel accent-glow relative flex flex-col rounded-2xl p-6 sm:p-8">
+        <div className="flex flex-col rounded-xl border border-border bg-background p-6 sm:p-8">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Your build
           </h3>
@@ -231,7 +231,7 @@ export function Configurator() {
             ≈ ₹{effectivePerMonth.toLocaleString()}/mo effective
           </p>
 
-          <dl className="mt-6 flex flex-col gap-3 border-t border-border/50 pt-5 text-sm">
+          <dl className="mt-6 flex flex-col gap-3 border-t border-border pt-5 text-sm">
             <SummaryRow k="vCPU" v={`${cpu[0]} cores`} />
             <SummaryRow k="Memory" v={`${ram[0]} GB DDR4`} />
             <SummaryRow k="Storage" v={`${storage[0]} GB NVMe`} />

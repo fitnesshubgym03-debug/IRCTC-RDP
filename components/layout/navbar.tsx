@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Menu, X, ArrowRight } from "lucide-react"
 import { Logo } from "@/components/brand/logo"
 import { Button } from "@/components/ui/button"
@@ -12,25 +12,10 @@ import { usePathname } from "next/navigation"
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 6)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
-
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "backdrop-blur-md supports-[backdrop-filter]:bg-background/55"
-          : "bg-transparent"
-      )}
-    >
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <Container className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Logo />
@@ -72,7 +57,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border/70 bg-card/40 text-foreground backdrop-blur-sm lg:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-foreground lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -82,19 +67,19 @@ export function Navbar() {
       </Container>
 
       {open && (
-        <div className="glass-panel mx-3 mb-3 rounded-xl lg:hidden">
+        <div className="border-t border-border/60 bg-background lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {primaryNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-card/60 hover:text-foreground"
+                className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-2 pt-3">
+            <div className="mt-3 flex flex-col gap-2 border-t border-border/60 pt-4">
               <Button variant="outline" asChild>
                 <Link href="/login" onClick={() => setOpen(false)}>
                   Log in

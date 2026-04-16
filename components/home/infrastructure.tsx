@@ -22,43 +22,28 @@ export function Infrastructure() {
         />
         <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="flex flex-col gap-4">
-            <Stat
-              icon={Globe}
-              title="6 regions"
-              desc="Across Asia, Europe, and North America."
-            />
-            <Stat
-              icon={Server}
-              title="Tier III+ facilities"
-              desc="N+1 power, cooling, and network redundancy."
-            />
-            <Stat
-              icon={Network}
-              title="Private networking"
-              desc="Low-latency interconnects between your nodes."
-            />
+            <Stat icon={Globe} title="6 regions" desc="Across Asia, Europe, and North America." />
+            <Stat icon={Server} title="Tier III+ facilities" desc="N+1 power, cooling, and network redundancy." />
+            <Stat icon={Network} title="Private networking" desc="Low-latency interconnects between your nodes." />
           </div>
 
-          <div className="glass-panel overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-xl border border-border bg-card">
             <table className="w-full text-sm">
               <thead className="bg-background/40 text-xs uppercase tracking-wider text-muted-foreground">
                 <tr>
-                  <th className="px-5 py-3.5 text-left font-medium">Code</th>
-                  <th className="px-5 py-3.5 text-left font-medium">Location</th>
-                  <th className="px-5 py-3.5 text-right font-medium">Status</th>
+                  <th className="px-5 py-3 text-left font-medium">Code</th>
+                  <th className="px-5 py-3 text-left font-medium">Location</th>
+                  <th className="px-5 py-3 text-right font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-border">
                 {regions.map((r) => (
-                  <tr
-                    key={r.code}
-                    className="transition-colors hover:bg-accent/5"
-                  >
-                    <td className="px-5 py-3.5 font-mono text-xs text-muted-foreground">
+                  <tr key={r.code} className="hover:bg-background/30">
+                    <td className="px-5 py-3 font-mono text-xs text-muted-foreground">
                       {r.code}
                     </td>
-                    <td className="px-5 py-3.5 font-medium">{r.city}</td>
-                    <td className="px-5 py-3.5 text-right">
+                    <td className="px-5 py-3 font-medium">{r.city}</td>
+                    <td className="px-5 py-3 text-right">
                       <span
                         className={`inline-flex items-center gap-1.5 text-xs ${
                           r.status === "Live"
@@ -69,7 +54,7 @@ export function Infrastructure() {
                         <span
                           className={`h-1.5 w-1.5 rounded-full ${
                             r.status === "Live"
-                              ? "bg-accent shadow-[0_0_8px_currentColor]"
+                              ? "bg-accent"
                               : "bg-muted-foreground"
                           }`}
                         />
@@ -97,8 +82,8 @@ function Stat({
   desc: string
 }) {
   return (
-    <div className="glass-card flex gap-4 rounded-2xl p-5">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border/70 bg-card/60 text-accent shadow-[0_0_20px_-6px_currentColor]">
+    <div className="flex gap-4 rounded-xl border border-border bg-card p-5">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-accent">
         <Icon className="h-5 w-5" />
       </div>
       <div>

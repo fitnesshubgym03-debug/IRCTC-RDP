@@ -14,15 +14,15 @@ export function FAQAccordion({ items }: { items: FAQ[] }) {
     <Accordion
       type="single"
       collapsible
-      className="glass-panel w-full rounded-2xl"
+      className="w-full divide-y divide-border rounded-xl border border-border bg-card"
     >
       {items.map((item, i) => (
         <AccordionItem
           key={i}
           value={`item-${i}`}
-          className="border-b border-border/40 px-5 last:border-b-0"
+          className="border-b-0 px-5"
         >
-          <AccordionTrigger className="py-5 text-left text-base font-medium hover:no-underline data-[state=open]:text-accent">
+          <AccordionTrigger className="py-5 text-left text-base font-medium hover:no-underline">
             {item.q}
           </AccordionTrigger>
           <AccordionContent className="pb-5 text-sm leading-relaxed text-muted-foreground">

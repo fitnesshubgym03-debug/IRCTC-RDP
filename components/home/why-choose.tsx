@@ -1,0 +1,52 @@
+import { Container } from "@/components/layout/container"
+import { SectionHeader } from "@/components/layout/section-header"
+
+const pillars = [
+  {
+    k: "Reliability",
+    v: "99.99%",
+    desc: "Target monthly uptime across regions, backed by a clear SLA.",
+  },
+  {
+    k: "Support response",
+    v: "< 15 min",
+    desc: "Median first-response time for priority support tickets.",
+  },
+  {
+    k: "Hardware refresh",
+    v: "3 yrs",
+    desc: "Rolling hardware replacement cycle across our fleet.",
+  },
+  {
+    k: "Pricing clarity",
+    v: "₹/mo",
+    desc: "Flat monthly rates. No surprise egress fees on standard plans.",
+  },
+]
+
+export function WhyChoose() {
+  return (
+    <section className="border-y border-border/60 bg-card/30 py-20 sm:py-24">
+      <Container className="flex flex-col gap-12">
+        <SectionHeader
+          eyebrow="Why ZWS Cloud"
+          title="Operational clarity, not marketing theater"
+          description="We optimize for the things teams actually feel — stable infrastructure, clean support, and predictable bills."
+        />
+        <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => (
+            <div key={p.k} className="flex flex-col gap-2 bg-card p-6">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">
+                {p.k}
+              </div>
+              <div className="text-3xl font-semibold tracking-tight">
+                {p.v}
+              </div>
+              <p className="text-sm text-muted-foreground">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}

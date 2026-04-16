@@ -6,8 +6,8 @@ import { Container } from "@/components/layout/container"
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border/60">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-20 mask-fade-b" />
-      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
+      {/* Soft ambient accent glow to lift the hero over the global dot field. */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
 
       <Container className="relative py-20 sm:py-28 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">

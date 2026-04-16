@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/sonner"
+import { DotGridBackground } from "@/components/effects/dot-grid-background"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -56,7 +57,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark bg-background ${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground">
-        {children}
+        {/* Full-screen interactive dot field (fixed, pointer-events-none) */}
+        <DotGridBackground />
+        {/* App content renders above the background */}
+        <div className="relative z-10">{children}</div>
         <Toaster />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

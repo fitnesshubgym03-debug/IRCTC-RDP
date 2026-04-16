@@ -17,13 +17,13 @@ export function SectionHeader({
     <div
       className={cn(
         "flex flex-col gap-4",
-        align === "center" && "mx-auto max-w-2xl text-center items-center",
+        align === "center" && "mx-auto max-w-2xl items-center text-center",
         className
       )}
     >
       {eyebrow && (
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+        <div className="glass-panel inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-muted-foreground">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_8px_currentColor]" />
           {eyebrow}
         </div>
       )}

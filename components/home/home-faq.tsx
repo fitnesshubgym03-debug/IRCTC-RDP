@@ -7,7 +7,7 @@ import { homeFaqs } from "@/data/faqs"
 
 export function HomeFaq() {
   return (
-    <section className="border-y border-border/60 bg-card/30 py-20 sm:py-24">
+    <section className="py-20 sm:py-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <div>

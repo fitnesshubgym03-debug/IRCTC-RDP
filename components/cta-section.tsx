@@ -7,8 +7,7 @@ export function CTASection() {
   return (
     <section className="py-20 sm:py-24">
       <Container>
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-10 sm:p-14">
-          <div className="pointer-events-none absolute inset-0 bg-dot opacity-50" />
+        <div className="glass-panel accent-glow relative overflow-hidden rounded-3xl p-10 sm:p-14">
           <div className="relative flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-xl">
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">

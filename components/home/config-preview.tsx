@@ -18,15 +18,16 @@ export function ConfigPreview() {
   const [cycle, setCycle] = useState<BillingCycle>("monthly")
 
   const basePerMonth = useMemo(() => {
-    // Simple demo pricing formula (INR).
     return cpu[0] * 250 + ram[0] * 60 + storage[0] * 4
   }, [cpu, ram, storage])
 
   const total = Math.round(basePerMonth * billingCycleMultiplier[cycle])
-  const perMonth = Math.round(total / (cycle === "monthly" ? 1 : cycle === "quarterly" ? 3 : 12))
+  const perMonth = Math.round(
+    total / (cycle === "monthly" ? 1 : cycle === "quarterly" ? 3 : 12)
+  )
 
   return (
-    <section className="border-y border-border/60 bg-card/30 py-20 sm:py-24">
+    <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="Custom configuration"
@@ -35,7 +36,7 @@ export function ConfigPreview() {
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-          <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
+          <div className="glass-panel rounded-2xl p-6 sm:p-8">
             <div className="flex flex-col gap-8">
               <ConfigSlider
                 icon={Cpu}
@@ -83,7 +84,7 @@ export function ConfigPreview() {
                       <Label
                         key={c}
                         htmlFor={`cycle-${c}`}
-                        className="flex cursor-pointer items-center justify-center rounded-md border border-border bg-background px-3 py-2 text-sm capitalize text-muted-foreground transition-colors hover:text-foreground has-[[data-state=checked]]:border-accent has-[[data-state=checked]]:text-foreground"
+                        className="flex cursor-pointer items-center justify-center rounded-md border border-border/70 bg-card/40 px-3 py-2 text-sm capitalize text-muted-foreground transition-colors hover:text-foreground has-[[data-state=checked]]:border-accent has-[[data-state=checked]]:bg-accent/10 has-[[data-state=checked]]:text-foreground"
                       >
                         <RadioGroupItem
                           id={`cycle-${c}`}
@@ -105,7 +106,7 @@ export function ConfigPreview() {
             </div>
           </div>
 
-          <aside className="flex flex-col rounded-xl border border-border bg-background p-6 sm:p-8">
+          <aside className="glass-panel accent-glow relative flex flex-col rounded-2xl p-6 sm:p-8">
             <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
               Live quote
             </h3>
@@ -121,7 +122,7 @@ export function ConfigPreview() {
               ≈ ₹{perMonth.toLocaleString()}/mo effective
             </p>
 
-            <dl className="mt-6 flex flex-col gap-3 border-t border-border pt-5 text-sm">
+            <dl className="mt-6 flex flex-col gap-3 border-t border-border/40 pt-5 text-sm">
               <Row k="vCPU" v={`${cpu[0]} cores`} />
               <Row k="Memory" v={`${ram[0]} GB`} />
               <Row k="Storage" v={`${storage[0]} GB NVMe`} />

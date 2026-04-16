@@ -26,20 +26,23 @@ const pillars = [
 
 export function WhyChoose() {
   return (
-    <section className="border-y border-border/60 bg-card/30 py-20 sm:py-24">
+    <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeader
           eyebrow="Why ZWS Cloud"
           title="Operational clarity, not marketing theater"
           description="We optimize for the things teams actually feel — stable infrastructure, clean support, and predictable bills."
         />
-        <div className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
-            <div key={p.k} className="flex flex-col gap-2 bg-card p-6">
+            <div
+              key={p.k}
+              className="glass-card flex flex-col gap-2 rounded-2xl p-6"
+            >
               <div className="text-xs uppercase tracking-wider text-muted-foreground">
                 {p.k}
               </div>
-              <div className="text-3xl font-semibold tracking-tight">
+              <div className="bg-gradient-to-br from-foreground to-foreground/60 bg-clip-text text-3xl font-semibold tracking-tight text-transparent">
                 {p.v}
               </div>
               <p className="text-sm text-muted-foreground">{p.desc}</p>

@@ -23,7 +23,7 @@ export default function DedicatedPage() {
         description="Fully isolated dedicated hardware for demanding workloads. We're currently finalizing our dedicated catalog — reach out to register interest."
       />
       <Container className="py-16">
-        <Empty className="rounded-xl border border-border bg-card">
+        <Empty className="glass rounded-2xl">
           <EmptyHeader>
             <EmptyMedia variant="icon">
               <Server className="h-5 w-5" />

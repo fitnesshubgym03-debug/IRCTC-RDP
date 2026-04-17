@@ -27,44 +27,44 @@ export function Infrastructure() {
             <Stat icon={Network} title="Private networking" desc="Low-latency interconnects between your nodes." />
           </div>
 
-          <div className="overflow-hidden rounded-xl border border-border bg-card">
-            <table className="w-full text-sm">
-              <thead className="bg-background/40 text-xs uppercase tracking-wider text-muted-foreground">
-                <tr>
-                  <th className="px-5 py-3 text-left font-medium">Code</th>
-                  <th className="px-5 py-3 text-left font-medium">Location</th>
-                  <th className="px-5 py-3 text-right font-medium">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {regions.map((r) => (
-                  <tr key={r.code} className="hover:bg-background/30">
-                    <td className="px-5 py-3 font-mono text-xs text-muted-foreground">
-                      {r.code}
-                    </td>
-                    <td className="px-5 py-3 font-medium">{r.city}</td>
-                    <td className="px-5 py-3 text-right">
+          <div className="glass overflow-hidden rounded-2xl p-2">
+            <div className="grid grid-cols-[auto_1fr_auto] gap-x-6 rounded-xl px-4 py-2.5 text-xs uppercase tracking-wider text-muted-foreground">
+              <span className="font-medium">Code</span>
+              <span className="font-medium">Location</span>
+              <span className="text-right font-medium">Status</span>
+            </div>
+            <ul className="flex flex-col gap-1">
+              {regions.map((r) => (
+                <li
+                  key={r.code}
+                  className="grid grid-cols-[auto_1fr_auto] items-center gap-x-6 rounded-xl px-4 py-3 text-sm transition-colors hover:bg-foreground/[0.035]"
+                >
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {r.code}
+                  </span>
+                  <span className="font-medium">{r.city}</span>
+                  <span
+                    className={`inline-flex items-center gap-1.5 text-xs ${
+                      r.status === "Live"
+                        ? "text-accent"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    <span className="relative inline-flex h-1.5 w-1.5">
+                      {r.status === "Live" && (
+                        <span className="status-pulse absolute inset-0 rounded-full bg-accent" />
+                      )}
                       <span
-                        className={`inline-flex items-center gap-1.5 text-xs ${
-                          r.status === "Live"
-                            ? "text-accent"
-                            : "text-muted-foreground"
+                        className={`relative inline-flex h-1.5 w-1.5 rounded-full ${
+                          r.status === "Live" ? "bg-accent" : "bg-muted-foreground/60"
                         }`}
-                      >
-                        <span
-                          className={`h-1.5 w-1.5 rounded-full ${
-                            r.status === "Live"
-                              ? "bg-accent"
-                              : "bg-muted-foreground"
-                          }`}
-                        />
-                        {r.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      />
+                    </span>
+                    {r.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Container>
@@ -82,8 +82,8 @@ function Stat({
   desc: string
 }) {
   return (
-    <div className="flex gap-4 rounded-xl border border-border bg-card p-5">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-accent">
+    <div className="glass glass-hover flex gap-4 rounded-2xl p-5">
+      <div className="glass flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-accent">
         <Icon className="h-5 w-5" />
       </div>
       <div>

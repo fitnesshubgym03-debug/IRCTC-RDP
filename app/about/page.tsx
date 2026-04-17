@@ -61,14 +61,14 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-border/60 bg-card/30 py-16">
+      <section className="py-16">
         <Container className="flex flex-col gap-10">
           <SectionHeader eyebrow="What we care about" title="Values" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <div
                 key={v.k}
-                className="rounded-xl border border-border bg-card p-6"
+                className="glass glass-hover rounded-2xl p-6"
               >
                 <h3 className="text-base font-semibold">{v.k}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

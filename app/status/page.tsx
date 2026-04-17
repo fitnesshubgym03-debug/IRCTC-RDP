@@ -46,9 +46,12 @@ export default function StatusPage() {
 
       <section className="py-16">
         <Container className="flex flex-col gap-10">
-          <div className="flex flex-col gap-3 rounded-xl border border-accent/30 bg-accent/5 p-6">
+          <div className="glass accent-glow relative flex flex-col gap-3 overflow-hidden rounded-2xl p-6">
             <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-accent" />
+              <span className="relative inline-flex h-2.5 w-2.5">
+                <span className="status-pulse absolute inset-0 rounded-full bg-accent" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent" />
+              </span>
               <h2 className="text-lg font-semibold">All systems operational</h2>
             </div>
             <p className="text-sm text-muted-foreground">
@@ -58,23 +61,23 @@ export default function StatusPage() {
 
           <div>
             <SectionHeader eyebrow="Services" title="Component status" />
-            <div className="mt-8 overflow-hidden rounded-xl border border-border bg-card">
-              <table className="w-full text-sm">
-                <tbody className="divide-y divide-border">
-                  {services.map((s) => (
-                    <tr key={s.name}>
-                      <td className="px-5 py-4 font-medium">{s.name}</td>
-                      <td className="px-5 py-4 text-right">
-                        <span className="inline-flex items-center gap-2 text-accent">
-                          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                          {s.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ul className="glass mt-8 flex flex-col gap-1 rounded-2xl p-2">
+              {services.map((s) => (
+                <li
+                  key={s.name}
+                  className="flex items-center justify-between rounded-xl px-4 py-3 text-sm transition-colors hover:bg-foreground/[0.035]"
+                >
+                  <span className="font-medium">{s.name}</span>
+                  <span className="inline-flex items-center gap-2 text-accent">
+                    <span className="relative inline-flex h-1.5 w-1.5">
+                      <span className="status-pulse absolute inset-0 rounded-full bg-accent" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                    </span>
+                    {s.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div>
@@ -83,7 +86,7 @@ export default function StatusPage() {
               {incidents.map((i) => (
                 <div
                   key={i.date + i.title}
-                  className="flex flex-col gap-1 rounded-xl border border-border bg-card p-5 sm:flex-row sm:items-center sm:justify-between"
+                  className="glass glass-hover flex flex-col gap-1 rounded-2xl p-5 sm:flex-row sm:items-center sm:justify-between"
                 >
                   <div>
                     <div className="font-medium">{i.title}</div>

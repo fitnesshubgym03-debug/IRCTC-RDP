@@ -50,9 +50,9 @@ export default function ContactPage() {
               <a
                 key={title}
                 href={href}
-                className="group flex gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-foreground/20"
+                className="glass glass-hover group flex gap-4 rounded-2xl p-5"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-accent">
+                <div className="glass flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-accent">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
+          <div className="glass rounded-2xl p-6 sm:p-8">
             <h2 className="text-lg font-semibold tracking-tight">
               Send us a message
             </h2>

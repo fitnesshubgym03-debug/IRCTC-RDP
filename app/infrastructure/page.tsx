@@ -45,7 +45,7 @@ export default function InfrastructurePage() {
         <Container className="flex flex-col gap-10">
           <SectionHeader eyebrow="Regions" title="Deploy close to your users" />
 
-          <div className="overflow-hidden rounded-xl border border-border bg-card">
+          <div className="glass overflow-hidden rounded-2xl">
             <table className="w-full text-sm">
               <thead className="bg-background/40 text-xs uppercase tracking-wider text-muted-foreground">
                 <tr>
@@ -55,7 +55,7 @@ export default function InfrastructurePage() {
                   <th className="px-5 py-3 text-right font-medium">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border">
+              <tbody>
                 {regions.map((r) => (
                   <tr key={r.code}>
                     <td className="px-5 py-3 font-mono text-xs text-muted-foreground">
@@ -87,7 +87,7 @@ export default function InfrastructurePage() {
         </Container>
       </section>
 
-      <section className="border-y border-border/60 bg-card/30 py-16">
+      <section className="py-16">
         <Container className="flex flex-col gap-10">
           <SectionHeader eyebrow="Capabilities" title="What every region includes" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -15,18 +15,17 @@ export function PageHeader({
   children?: React.ReactNode
 }) {
   return (
-    <section
-      className={cn(
-        "relative overflow-hidden border-b border-border/60 bg-card/30",
-        className
-      )}
-    >
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-30 mask-fade-b" />
+    <section className={cn("relative overflow-hidden", className)}>
+      {/* Subtle accent glow halo to lift the header above the global dot field. */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[900px] -translate-x-1/2 rounded-full bg-accent/5 blur-3xl" />
       <Container className="relative py-16 sm:py-20 lg:py-24">
         <div className="flex max-w-3xl flex-col gap-4">
           {eyebrow && (
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <div className="glass inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="relative inline-flex h-1.5 w-1.5">
+                <span className="status-pulse absolute inset-0 rounded-full bg-accent" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
               {eyebrow}
             </div>
           )}

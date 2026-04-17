@@ -6,7 +6,7 @@ import { Github, Linkedin, Twitter } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border/60 bg-background/70 backdrop-blur-sm">
+    <footer className="mt-24 bg-background/40 backdrop-blur-sm">
       <Container className="py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           <div className="col-span-2 md:col-span-2">
@@ -50,7 +50,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center">
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
             reserved.
@@ -78,7 +78,7 @@ function SocialIcon({
     <Link
       href={href}
       aria-label={label}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+      className="glass glass-hover inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground"
     >
       {children}
     </Link>

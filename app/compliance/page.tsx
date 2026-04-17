@@ -43,7 +43,7 @@ export default function CompliancePage() {
               eyebrow="Compliance"
               title="Certifications & posture"
             />
-            <div className="overflow-hidden rounded-xl border border-border bg-card">
+            <div className="glass overflow-hidden rounded-2xl">
               <table className="w-full text-sm">
                 <thead className="bg-background/40 text-xs uppercase tracking-wider text-muted-foreground">
                   <tr>
@@ -52,7 +52,7 @@ export default function CompliancePage() {
                     <th className="px-5 py-3 text-left font-medium">Notes</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-border">
+                <tbody>
                   {certifications.map((c) => (
                     <tr key={c.name}>
                       <td className="px-5 py-3.5 font-medium">{c.name}</td>
@@ -77,7 +77,7 @@ export default function CompliancePage() {
 
 function Row({ k, v }: { k: string; v: string }) {
   return (
-    <div className="flex flex-col gap-0.5 border-b border-border py-3 last:border-0 sm:grid sm:grid-cols-[180px_1fr] sm:gap-3">
+    <div className="flex flex-col gap-0.5 py-3 sm:grid sm:grid-cols-[180px_1fr] sm:gap-3">
       <dt className="font-medium text-foreground">{k}</dt>
       <dd>{v}</dd>
     </div>

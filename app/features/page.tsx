@@ -79,7 +79,7 @@ export default function FeaturesPage() {
       {groups.map((group, i) => (
         <section
           key={group.title}
-          className={i % 2 === 0 ? "py-16" : "border-y border-border/60 bg-card/30 py-16"}
+          className="py-16"
         >
           <Container className="flex flex-col gap-10">
             <SectionHeader eyebrow="Capability group" title={group.title} />

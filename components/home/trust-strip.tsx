@@ -11,19 +11,19 @@ const items = [
 
 export function TrustStrip() {
   return (
-    <section className="border-b border-border/60 bg-card/30 py-8">
+    <section className="py-8">
       <Container>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:justify-between">
+        <div className="glass flex flex-wrap items-center justify-center gap-x-10 gap-y-4 rounded-2xl px-6 py-4 sm:justify-between">
           {items.map(({ icon: Icon, label }) => (
-            <li
+            <div
               key={label}
               className="flex items-center gap-2 text-sm text-muted-foreground"
             >
               <Icon className="h-4 w-4 text-accent" />
               {label}
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </Container>
     </section>
   )

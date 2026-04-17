@@ -14,13 +14,13 @@ export function FAQAccordion({ items }: { items: FAQ[] }) {
     <Accordion
       type="single"
       collapsible
-      className="w-full divide-y divide-border rounded-xl border border-border bg-card"
+      className="glass flex w-full flex-col gap-1 rounded-2xl p-2"
     >
       {items.map((item, i) => (
         <AccordionItem
           key={i}
           value={`item-${i}`}
-          className="border-b-0 px-5"
+          className="rounded-xl border-b-0 px-4 transition-colors data-[state=open]:bg-foreground/[0.03]"
         >
           <AccordionTrigger className="py-5 text-left text-base font-medium hover:no-underline">
             {item.q}

@@ -75,7 +75,7 @@ export default function SupportPage() {
               <Link
                 key={title}
                 href={href}
-                className="group flex gap-4 rounded-xl border border-border bg-card p-6 transition-colors hover:border-foreground/20"
+                className="glass glass-hover group flex gap-4 rounded-2xl p-6"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-accent">
                   <Icon className="h-5 w-5" />
@@ -93,9 +93,9 @@ export default function SupportPage() {
         </Container>
       </section>
 
-      <section className="border-y border-border/60 bg-card/30 py-16">
+      <section className="py-16">
         <Container>
-          <div className="flex flex-col gap-4 rounded-xl border border-border bg-card p-8">
+          <div className="glass flex flex-col gap-4 rounded-2xl p-8">
             <div className="flex items-center gap-3">
               <LifeBuoy className="h-5 w-5 text-accent" />
               <h2 className="text-lg font-semibold">Support response targets</h2>

@@ -160,4 +160,101 @@
     -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   }
+
+  /*
+    Glassmorphism surfaces — the core visual primitive for cards across
+    ZWS Cloud. Sits over the global interactive dot field and keeps a
+    consistent premium feel (soft border, blurred backdrop, subtle top
+    highlight and accent glow on hover).
+  */
+  .glass {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--card) 72%, transparent) 0%,
+        color-mix(in oklch, var(--card) 55%, transparent) 100%
+      );
+    border: 1px solid color-mix(in oklch, var(--border) 70%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklch, white 6%, transparent) inset,
+      0 0 0 1px color-mix(in oklch, white 2%, transparent) inset,
+      0 30px 60px -30px rgba(0, 0, 0, 0.45);
+    transition:
+      border-color 220ms ease,
+      box-shadow 260ms ease,
+      transform 260ms ease;
+  }
+  .glass-hover:hover {
+    border-color: color-mix(in oklch, var(--accent) 35%, var(--border));
+    box-shadow:
+      0 1px 0 0 color-mix(in oklch, white 8%, transparent) inset,
+      0 0 0 1px color-mix(in oklch, white 3%, transparent) inset,
+      0 18px 40px -12px color-mix(in oklch, var(--accent) 22%, transparent),
+      0 30px 60px -30px rgba(0, 0, 0, 0.5);
+  }
+  .glass-strong {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in oklch, var(--card) 85%, transparent) 0%,
+        color-mix(in oklch, var(--card) 68%, transparent) 100%
+      );
+    border: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklch, white 8%, transparent) inset,
+      0 40px 80px -32px rgba(0, 0, 0, 0.55);
+  }
+
+  /* Faint accent glow halo (used sparingly behind primary surfaces). */
+  .accent-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklch, var(--accent) 45%, transparent),
+      transparent 40%,
+      color-mix(in oklch, var(--accent) 20%, transparent) 80%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Cursor blink for terminal lines. */
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  .caret-blink {
+    animation: blink 1.05s steps(1) infinite;
+  }
+
+  /* Live status dot pulse. */
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.25); }
+  }
+  .status-pulse {
+    animation: soft-pulse 1.8s ease-in-out infinite;
+  }
+
+  /* Row-fade-in used by terminal log lines. */
+  @keyframes row-in {
+    from { opacity: 0; transform: translateY(2px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .row-in {
+    animation: row-in 240ms ease-out both;
+  }
 }

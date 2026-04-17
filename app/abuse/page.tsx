@@ -57,9 +57,9 @@ export default function AbusePage() {
             {items.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="flex gap-4 rounded-xl border border-border bg-card p-6"
+                className="glass glass-hover flex gap-4 rounded-2xl p-6"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-background text-accent">
+                <div className="glass flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-accent">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>

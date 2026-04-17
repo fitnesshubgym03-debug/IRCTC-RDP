@@ -15,7 +15,7 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-background/70 backdrop-blur-md supports-[backdrop-filter]:bg-background/50">
       <Container className="flex h-16 items-center justify-between gap-4">
         <div className="flex items-center gap-8">
           <Logo />
@@ -67,7 +67,7 @@ export function Navbar() {
       </Container>
 
       {open && (
-        <div className="border-t border-border/60 bg-background lg:hidden">
+        <div className="glass lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {primaryNav.map((item) => (
               <Link
@@ -79,7 +79,7 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-2 border-t border-border/60 pt-4">
+            <div className="mt-3 flex flex-col gap-2 pt-4">
               <Button variant="outline" asChild>
                 <Link href="/login" onClick={() => setOpen(false)}>
                   Log in

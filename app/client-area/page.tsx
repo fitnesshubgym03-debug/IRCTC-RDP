@@ -28,7 +28,7 @@ export default function ClientAreaPage() {
         description="A placeholder for your post-login dashboard — servers, billing, and account management live here."
       />
       <Container className="py-16">
-        <Empty className="rounded-xl border border-border bg-card">
+        <Empty className="glass rounded-2xl">
           <EmptyHeader>
             <EmptyMedia variant="icon">
               <LayoutDashboard className="h-5 w-5" />

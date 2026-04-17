@@ -73,9 +73,9 @@ export default function PricingPage() {
             eyebrow="Compare plans"
             title="Feature-by-feature comparison"
           />
-          <div className="overflow-x-auto rounded-xl border border-border">
+          <div className="glass overflow-x-auto rounded-2xl">
             <table className="w-full min-w-[640px] text-sm">
-              <thead className="bg-card text-xs uppercase tracking-wider text-muted-foreground">
+              <thead className="text-xs uppercase tracking-wider text-muted-foreground">
                 <tr>
                   <th className="px-5 py-4 text-left font-medium">Feature</th>
                   {plans.map((p) => (
@@ -88,7 +88,7 @@ export default function PricingPage() {
                   ))}
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border bg-background">
+              <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.feature}>
                     <td className="px-5 py-3.5 font-medium">{row.feature}</td>
@@ -107,7 +107,7 @@ export default function PricingPage() {
                     ))}
                   </tr>
                 ))}
-                <tr className="bg-card">
+                <tr className="bg-foreground/[0.03]">
                   <td className="px-5 py-4 font-semibold">Starting at</td>
                   {plans.map((p) => (
                     <td

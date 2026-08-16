@@ -1,0 +1,25 @@
+{
+  "name": "@irctcrdp/provisioner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "tsx --env-file=.env watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file=.env dist/src/server.js"
+  },
+  "dependencies": {
+    "@irctcrdp/contracts": "workspace:*",
+    "@irctcrdp/validation": "workspace:*",
+    "fastify": "^5.12.0",
+    "pino": "^9.14.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12"
+  }
+}

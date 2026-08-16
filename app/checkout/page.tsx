@@ -1,9 +1,24 @@
-"use client"
-import Link from "next/link"
-import { useSearchParams } from "next/navigation"
-import { ArrowLeft, Check, LockKeyhole } from "lucide-react"
+import { Suspense } from "react"
+import type { Metadata } from "next"
 import { SiteShell } from "@/components/layout/site-shell"
 import { Container } from "@/components/layout/container"
-import { Button } from "@/components/ui/button"
-import { rdpPlans } from "@/data/rdp"
-export default function Page() { const params = useSearchParams(); const plan = rdpPlans.find(p => p.id === params.get("plan")) ?? rdpPlans[1]; return <SiteShell><Container className="grid max-w-5xl gap-8 py-16 sm:py-24 lg:grid-cols-[1fr_.8fr]"><div><Link href="/rdp-plans" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><ArrowLeft className="size-4" />Back to plans</Link><p className="mt-10 font-mono text-xs uppercase tracking-[0.25em] text-accent">CHECKOUT / SECURE DEPLOYMENT</p><h1 className="mt-4 text-4xl font-semibold tracking-tight">Deploy {plan.name}.</h1><p className="mt-4 text-muted-foreground">Demo checkout UI. Connect a payment provider before production use.</p><div className="glass mt-8 rounded-2xl p-6"><label className="flex flex-col gap-2 text-sm"><span>Email address</span><input type="email" placeholder="you@example.com" className="h-11 rounded-lg border border-input bg-background/70 px-3 outline-none focus:ring-2 focus:ring-ring" /></label><label className="mt-5 flex flex-col gap-2 text-sm"><span>Payment reference</span><input placeholder="UPI / card / invoice reference" className="h-11 rounded-lg border border-input bg-background/70 px-3 outline-none focus:ring-2 focus:ring-ring" /></label><Button className="mt-6 w-full" asChild><Link href="/orders">Place demo order <LockKeyhole data-icon="inline-end" /></Link></Button></div></div><aside className="glass h-fit rounded-2xl p-6"><p className="font-mono text-xs uppercase tracking-wider text-accent">ORDER SUMMARY</p><h2 className="mt-4 text-2xl font-semibold">{plan.name}</h2><p className="mt-1 text-sm text-muted-foreground">{plan.location} · monthly</p><p className="mt-8 text-4xl font-semibold">₹{plan.price}</p><ul className="mt-8 flex flex-col gap-3 text-sm text-muted-foreground">{[plan.ram, plan.cpu, plan.storage, "Windows RDP access"].map(item => <li key={item} className="flex items-center gap-2"><Check className="size-4 text-accent" />{item}</li>)}</ul></aside></Container></SiteShell> }
+import { CheckoutClient } from "@/components/checkout/checkout-client"
+
+export const metadata: Metadata = {
+  title: "Checkout",
+  description: "Securely pay for your IRCTC RDP plan with Razorpay.",
+}
+
+export default function CheckoutPage() {
+  return (
+    <SiteShell>
+      <Suspense
+        fallback={
+          <Container className="py-24 text-sm text-muted-foreground">Loading checkout…</Container>
+        }
+      >
+        <CheckoutClient />
+      </Suspense>
+    </SiteShell>
+  )
+}

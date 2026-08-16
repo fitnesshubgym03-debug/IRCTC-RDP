@@ -1,98 +1,115 @@
 export type Plan = {
   id: string
+  platform: "Intel" | "AMD Ryzen 9 9950X3D"
   name: string
   tagline: string
-  vcpu: number
+  cpuCores: number
   ramGB: number
-  storageGB: number
-  bandwidthTB: number
-  priceINR: number // monthly
-  priceUSD: number // monthly
+  priceINR: number
+  priceUSD: number
   popular?: boolean
+  bestValue?: boolean
   features: string[]
 }
 
+const sharedFeatures = [
+  "NVMe SSD",
+  "Full root/administrator access",
+  "IPv4 + IPv6 where available",
+  "High-speed network",
+]
+
 export const plans: Plan[] = [
   {
-    id: "starter",
-    name: "Starter VPS",
-    tagline: "For personal projects and small apps.",
-    vcpu: 1,
-    ramGB: 2,
-    storageGB: 40,
-    bandwidthTB: 1,
-    priceINR: 499,
-    priceUSD: 6,
-    features: [
-      "1 vCPU (shared)",
-      "2 GB DDR4 RAM",
-      "40 GB NVMe SSD",
-      "1 TB bandwidth",
-      "1 Gbps port",
-      "Full root access",
-      "IPv4 + IPv6",
-    ],
+    id: "intel-4c-8gb",
+    platform: "Intel",
+    name: "4C / 8 GB",
+    tagline: "Reliable Intel performance for everyday workloads.",
+    cpuCores: 4,
+    ramGB: 8,
+    priceINR: 799,
+    priceUSD: 10,
+    features: ["4 CPU cores", "8 GB RAM", ...sharedFeatures],
   },
   {
-    id: "business",
-    name: "Business VPS",
-    tagline: "Balanced performance for production workloads.",
-    vcpu: 2,
-    ramGB: 4,
-    storageGB: 80,
-    bandwidthTB: 2,
+    id: "intel-6c-16gb",
+    platform: "Intel",
+    name: "6C / 16 GB",
+    tagline: "Balanced capacity for demanding remote sessions.",
+    cpuCores: 6,
+    ramGB: 16,
     priceINR: 999,
     priceUSD: 12,
     popular: true,
-    features: [
-      "2 vCPU",
-      "4 GB DDR4 RAM",
-      "80 GB NVMe SSD",
-      "2 TB bandwidth",
-      "1 Gbps port",
-      "Full root access",
-      "Weekly backups",
-    ],
+    bestValue: true,
+    features: ["6 CPU cores", "16 GB RAM", ...sharedFeatures],
   },
   {
-    id: "pro",
-    name: "Pro VPS",
-    tagline: "For growing teams and demanding apps.",
-    vcpu: 4,
+    id: "intel-6c-24gb",
+    platform: "Intel",
+    name: "6C / 24 GB",
+    tagline: "More memory for heavier multitasking.",
+    cpuCores: 6,
+    ramGB: 24,
+    priceINR: 1499,
+    priceUSD: 18,
+    features: ["6 CPU cores", "24 GB RAM", ...sharedFeatures],
+  },
+  {
+    id: "intel-8c-32gb",
+    platform: "Intel",
+    name: "8C / 32 GB",
+    tagline: "Maximum Intel capacity for large workloads.",
+    cpuCores: 8,
+    ramGB: 32,
+    priceINR: 1999,
+    priceUSD: 24,
+    features: ["8 CPU cores", "32 GB RAM", ...sharedFeatures],
+  },
+  {
+    id: "ryzen-4c-8gb",
+    platform: "AMD Ryzen 9 9950X3D",
+    name: "4C / 8 GB",
+    tagline: "Premium single-core performance in a compact plan.",
+    cpuCores: 4,
     ramGB: 8,
-    storageGB: 160,
-    bandwidthTB: 4,
-    priceINR: 1899,
-    priceUSD: 23,
-    features: [
-      "4 vCPU",
-      "8 GB DDR4 RAM",
-      "160 GB NVMe SSD",
-      "4 TB bandwidth",
-      "1 Gbps port",
-      "Priority support",
-      "Snapshots included",
-    ],
+    priceINR: 1299,
+    priceUSD: 16,
+    features: ["AMD Ryzen 9 9950X3D", "4 CPU cores", "8 GB RAM", ...sharedFeatures],
   },
   {
-    id: "enterprise",
-    name: "Enterprise VPS",
-    tagline: "Scale with confidence across regions.",
-    vcpu: 8,
+    id: "ryzen-6c-16gb",
+    platform: "AMD Ryzen 9 9950X3D",
+    name: "6C / 16 GB",
+    tagline: "Premium balance for high-intensity workflows.",
+    cpuCores: 6,
     ramGB: 16,
-    storageGB: 320,
-    bandwidthTB: 6,
+    priceINR: 1999,
+    priceUSD: 24,
+    popular: true,
+    features: ["AMD Ryzen 9 9950X3D", "6 CPU cores", "16 GB RAM", ...sharedFeatures],
+  },
+  {
+    id: "ryzen-6c-24gb",
+    platform: "AMD Ryzen 9 9950X3D",
+    name: "6C / 24 GB",
+    tagline: "Extreme single-core performance with extra memory.",
+    cpuCores: 6,
+    ramGB: 24,
+    priceINR: 2799,
+    priceUSD: 34,
+    features: ["AMD Ryzen 9 9950X3D", "6 CPU cores", "24 GB RAM", ...sharedFeatures],
+  },
+  {
+    id: "ryzen-8c-32gb",
+    platform: "AMD Ryzen 9 9950X3D",
+    name: "8C / 32 GB",
+    tagline: "The premium IRCTC RDP performance tier.",
+    cpuCores: 8,
+    ramGB: 32,
     priceINR: 3499,
     priceUSD: 42,
-    features: [
-      "8 vCPU",
-      "16 GB DDR4 RAM",
-      "320 GB NVMe SSD",
-      "6 TB bandwidth",
-      "1 Gbps port",
-      "24/7 priority support",
-      "Automated snapshots",
-    ],
+    features: ["AMD Ryzen 9 9950X3D", "8 CPU cores", "32 GB RAM", ...sharedFeatures],
   },
 ]
 
@@ -100,8 +117,8 @@ export type BillingCycle = "monthly" | "quarterly" | "annual"
 
 export const billingCycleMultiplier: Record<BillingCycle, number> = {
   monthly: 1,
-  quarterly: 3 * 0.95, // 5% off
-  annual: 12 * 0.83, // ~17% off
+  quarterly: 3 * 0.95,
+  annual: 12 * 0.83,
 }
 
 export const billingCycleLabel: Record<BillingCycle, string> = {

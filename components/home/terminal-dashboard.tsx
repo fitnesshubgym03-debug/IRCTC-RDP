@@ -31,9 +31,12 @@ import { Activity, Gauge, Signal, ArrowDownToLine, ArrowUpToLine } from "lucide-
 const BOOT_TIMESTAMP = new Date("2024-06-01T00:00:00Z").getTime()
 
 function useUptime() {
-  const [now, setNow] = useState(() => Date.now())
+  // Keep the first render deterministic so server HTML matches the client.
+  // The interval below starts the live counter immediately after hydration.
+  const [now, setNow] = useState(BOOT_TIMESTAMP)
 
   useEffect(() => {
+    setNow(Date.now())
     const id = setInterval(() => setNow(Date.now()), 1000)
     return () => clearInterval(id)
   }, [])

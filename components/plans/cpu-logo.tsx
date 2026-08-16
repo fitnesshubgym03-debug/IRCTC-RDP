@@ -3,16 +3,17 @@ import { cn } from "@/lib/utils"
 
 export type CpuBrand = "Intel" | "Ryzen"
 
-const LOGOS: Record<CpuBrand, { src: string; alt: string }> = {
-  Intel: { src: "/logos/intel-xeon.png", alt: "Intel Xeon processor logo" },
-  Ryzen: { src: "/logos/amd-ryzen.png", alt: "AMD Ryzen processor logo" },
+const LOGOS: Record<CpuBrand, { src: string; alt: string; width: number; height: number }> = {
+  // Transparent, tightly-cropped horizontal wordmark lockups.
+  Intel: { src: "/logos/intel-xeon.png", alt: "Intel Xeon logo", width: 865, height: 247 },
+  Ryzen: { src: "/logos/amd-ryzen.png", alt: "AMD Ryzen logo", width: 936, height: 202 },
 }
 
 /**
- * Renders an official CPU platform logo.
- * The source assets ship with transparent padding, so we size by height and
- * let `object-contain` preserve the original aspect ratio (never stretched).
- * The visible box height is controlled entirely via the `className` prop.
+ * Renders a CPU platform logo as a bare transparent image.
+ * No background, border, shadow, or padding is applied to the image itself.
+ * Size it by height via the `className` prop; width follows the original
+ * aspect ratio and `object-contain` guarantees it is never stretched.
  */
 export function CpuLogo({
   brand,
@@ -28,8 +29,8 @@ export function CpuLogo({
     <Image
       src={logo.src || "/placeholder.svg"}
       alt={logo.alt}
-      width={512}
-      height={512}
+      width={logo.width}
+      height={logo.height}
       priority={priority}
       className={cn("w-auto select-none object-contain", className)}
     />

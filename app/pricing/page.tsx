@@ -49,13 +49,23 @@ export default function PricingPage() {
 
       <section className="py-12 sm:py-16">
         <Container className="flex flex-col gap-10">
-          <div className="flex flex-col gap-5">
-            <CpuLogo brand="Intel" priority className="h-12 self-start sm:h-14" />
-            <SectionHeader
-              eyebrow="Intel platform"
-              title="INTEL XEON"
-              description="Reliable performance for fast, focused remote workflows."
-            />
+          <div className="flex flex-col gap-4">
+            <div className="glass inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-muted-foreground">
+              <span className="relative inline-flex h-1.5 w-1.5">
+                <span className="status-pulse absolute inset-0 rounded-full bg-accent" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              </span>
+              Intel platform
+            </div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <CpuLogo brand="Intel" priority className="h-8 sm:h-9" />
+              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+                Intel Xeon
+              </h2>
+            </div>
+            <p className="max-w-2xl text-pretty text-base text-muted-foreground sm:text-lg">
+              Reliable performance for fast, focused remote workflows.
+            </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {intelPlans.map((plan) => (
@@ -74,10 +84,12 @@ export default function PricingPage() {
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
                 <Cpu className="size-4" /> Premium CPU platform
               </div>
-              <CpuLogo brand="Ryzen" className="h-12 self-start sm:h-14" />
-              <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                AMD Ryzen 9 9950X3D
-              </h2>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <CpuLogo brand="Ryzen" className="h-8 sm:h-9" />
+                <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+                  AMD Ryzen 9 9950X3D
+                </h2>
+              </div>
               <p className="max-w-2xl text-pretty leading-7 text-muted-foreground">
                 Extreme single-core performance for demanding workloads.
               </p>

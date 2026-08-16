@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Field, FieldLabel, FieldError, FieldGroup } from '@/components/ui/field'
-import { validateEmail } from '@/lib/auth-validation'
+import { isValidEmail } from '@/lib/auth-validation'
 
 export function ForgotPasswordForm() {
   const [email, setEmail] = useState('')
@@ -18,9 +18,12 @@ export function ForgotPasswordForm() {
     setError('')
 
     // Validate email
-    const emailError = validateEmail(email)
-    if (emailError) {
-      setError(emailError)
+    if (!email.trim()) {
+      setError('Email is required.')
+      return
+    }
+    if (!isValidEmail(email)) {
+      setError('Enter a valid email address.')
       return
     }
 

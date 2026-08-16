@@ -5,8 +5,8 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Field, FieldLabel, FieldError, FieldGroup } from '@/components/ui/field'
-import { validatePassword, getPasswordStrength } from '@/lib/auth-validation'
-import PasswordStrengthMeter from './password-strength'
+import { scorePassword } from '@/lib/auth-validation'
+import { PasswordStrengthMeter } from './password-strength'
 
 export function ResetPasswordForm() {
   const [password, setPassword] = useState('')
@@ -20,9 +20,11 @@ export function ResetPasswordForm() {
     const newErrors = { password: '', confirmPassword: '', general: '' }
 
     // Validate password
-    const passwordError = validatePassword(password)
-    if (passwordError) {
-      newErrors.password = passwordError
+    const strength = scorePassword(password)
+    if (strength.score < 2) {
+      newErrors.password = strength.hints.length > 0
+        ? `Add ${strength.hints.slice(0, 2).join(' and ')}.`
+        : 'Choose a stronger password.'
     }
 
     // Validate confirmation
@@ -57,7 +59,7 @@ export function ResetPasswordForm() {
     )
   }
 
-  const strength = getPasswordStrength(password)
+
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -72,7 +74,7 @@ export function ResetPasswordForm() {
             disabled={loading}
             autoComplete="new-password"
           />
-          {password && <PasswordStrengthMeter strength={strength} />}
+          {password && <PasswordStrengthMeter password={password} />}
           {errors.password && <FieldError>{errors.password}</FieldError>}
         </Field>
       </FieldGroup>

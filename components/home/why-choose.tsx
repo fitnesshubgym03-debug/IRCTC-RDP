@@ -29,7 +29,7 @@ export function WhyChoose() {
     <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow="Why ZWS Cloud"
+          eyebrow="Why IRCTC RDP"
           title="Operational clarity, not marketing theater"
           description="We optimize for the things teams actually feel — stable infrastructure, clean support, and predictable bills."
         />

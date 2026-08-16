@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
-  description: "Template terms of service for ZWS Cloud.",
+  description: "Template terms of service for IRCTC RDP.",
 }
 
 export default function TermsPage() {
@@ -11,7 +11,7 @@ export default function TermsPage() {
     <LegalPageLayout title="Terms and Conditions" lastUpdated="January 1, 2026">
       <LegalSection title="1. Agreement to terms">
         <p>
-          These Terms govern your use of ZWS Cloud services. By creating an
+          These Terms govern your use of IRCTC RDP services. By creating an
           account or using any service, you agree to these Terms. If you are
           entering into these Terms on behalf of a company, you represent that
           you have authority to bind that company.
@@ -20,7 +20,7 @@ export default function TermsPage() {
 
       <LegalSection title="2. Services">
         <p>
-          ZWS Cloud provides virtual private servers, cloud hosting, and
+          IRCTC RDP provides virtual private servers, cloud hosting, and
           related infrastructure services. Service specifications are described
           on our product pages and may evolve over time.
         </p>
@@ -110,7 +110,7 @@ export default function TermsPage() {
       <LegalSection title="13. Contact">
         <p>
           Questions about these Terms may be sent to{" "}
-          <a href="mailto:legal@zwscloud.example">legal@zwscloud.example</a>.
+          <a href="mailto:legal@irctcrdp.com">legal@irctcrdp.com</a>.
         </p>
       </LegalSection>
     </LegalPageLayout>

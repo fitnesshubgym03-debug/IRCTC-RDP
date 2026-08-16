@@ -20,8 +20,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://irctcrdp.com"),
   title: {
-    default: "IRCTC RDP — Fast Remote Booking Infrastructure",
+    default: "IRCTC RDP — High-Speed Remote Desktop Infrastructure",
     template: "%s · IRCTC RDP",
+  },
+  icons: {
+    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IRCTC_logo_PNG1-Ifdl4ScjnTSU4PskJgzU9yxL097lVC.png",
+    apple: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IRCTC_logo_PNG1-Ifdl4ScjnTSU4PskJgzU9yxL097lVC.png",
   },
   description:
     "Fast, reliable RDP infrastructure for railway booking workflows, remote operations, and always-on access.",

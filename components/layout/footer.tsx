@@ -12,9 +12,8 @@ export function Footer() {
           <div className="col-span-2 md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-muted-foreground text-pretty">
-              High-performance VPS, cloud hosting, and custom infrastructure.
-              Built for teams who care about reliability and transparent
-              pricing.
+              High-Speed Remote Desktop Infrastructure. Built for reliable
+              remote workflows, low-latency access, and always-on sessions.
             </p>
             <div className="mt-6 flex items-center gap-2">
               <SocialIcon href={siteConfig.social.twitter} label="Twitter">
@@ -56,8 +55,7 @@ export function Footer() {
             reserved.
           </p>
           <p>
-            Template site. All legal pages, claims, and infrastructure details
-            are placeholders for review.
+            High-Speed Remote Desktop Infrastructure · Built for India-first workflows.
           </p>
         </div>
       </Container>

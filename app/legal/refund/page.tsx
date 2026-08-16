@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy",
-  description: "Template refund and cancellation policy for ZWS Cloud.",
+  description: "Template refund and cancellation policy for IRCTC RDP.",
 }
 
 export default function RefundPage() {
@@ -46,7 +46,7 @@ export default function RefundPage() {
       <LegalSection title="How to request a refund">
         <p>
           Email{" "}
-          <a href="mailto:billing@zwscloud.example">billing@zwscloud.example</a>{" "}
+          <a href="mailto:billing@irctcrdp.com">billing@irctcrdp.com</a>{" "}
           with your account email, invoice number, and the reason for the
           refund. We will respond with next steps.
         </p>

@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "Template cookie policy for ZWS Cloud.",
+  description: "Template cookie policy for IRCTC RDP.",
 }
 
 export default function CookiePage() {

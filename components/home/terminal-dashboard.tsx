@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { Activity, Gauge, Signal, ArrowDownToLine, ArrowUpToLine } from "lucide-react"
 
 /**
- * Dynamic ZWS Cloud "terminal + dashboard" hero panel.
+ * Dynamic IRCTC RDP "terminal + dashboard" hero panel.
  *
  * IMPORTANT — UI simulation only (no backend).
  * All values are driven by local timers and randomized within realistic
@@ -154,7 +154,7 @@ export function TerminalDashboard() {
               <span className="h-2.5 w-2.5 rounded-full bg-muted/70" aria-hidden />
             </div>
             <div className="font-mono text-[11px] text-muted-foreground">
-              zws-cloud · bom-edge-01
+              irctc-rdp · bom-edge-01
             </div>
           </div>
           <div className="flex items-center gap-2 font-mono text-[11px]">

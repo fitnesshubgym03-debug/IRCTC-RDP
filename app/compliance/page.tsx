@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/layout/section-header"
 
 export const metadata: Metadata = {
   title: "Company & Compliance",
-  description: "ZWS Cloud company information and compliance posture.",
+  description: "IRCTC RDP company information and compliance posture.",
 }
 
 const certifications = [
@@ -30,11 +30,11 @@ export default function CompliancePage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
             <SectionHeader eyebrow="Company" title="About the business" />
             <div className="flex flex-col gap-3 text-sm leading-relaxed text-muted-foreground">
-              <Row k="Legal name" v="ZWS Cloud Technologies Pvt. Ltd. (template)" />
+              <Row k="Legal name" v="IRCTC RDP Technologies Pvt. Ltd. (template)" />
               <Row k="Registered office" v="Address to be confirmed before production launch." />
               <Row k="Corporate identification" v="Placeholder identifier — replace with registered CIN/equivalent." />
               <Row k="GST / tax identifier" v="Placeholder identifier — replace before invoicing." />
-              <Row k="Contact" v="hello@zwscloud.example" />
+              <Row k="Contact" v="hello@irctcrdp.com" />
             </div>
           </div>
 

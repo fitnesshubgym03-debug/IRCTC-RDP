@@ -5,7 +5,7 @@ import { TestimonialCard } from "@/components/testimonial-card"
 const items = [
   {
     quote:
-      "Migrating to ZWS Cloud cut our provisioning time from hours to under a minute. Support has been genuinely responsive.",
+      "Migrating to IRCTC RDP cut our provisioning time from hours to under a minute. Support has been genuinely responsive.",
     author: "Ananya Rao",
     role: "Head of Platform",
     company: "Finstack",
@@ -31,7 +31,7 @@ export function Testimonials() {
     <section className="py-20 sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionHeader
-          eyebrow="Teams on ZWS Cloud"
+          eyebrow="Teams on IRCTC RDP"
           title="What our customers say"
           description="Sample reviews. Replace with verified customer quotes before production launch."
         />

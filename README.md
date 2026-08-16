@@ -1,8 +1,8 @@
-# ZWS Cloud – Advanced Design & Auth System
+# IRCTC RDP – Advanced Design & Auth System
 
 ## Overview
 
-This is the ZWS Cloud website – a premium cloud infrastructure platform. The codebase has been significantly enhanced with an advanced glassmorphism design system, dynamic terminal dashboard, and comprehensive authentication flow.
+This is the IRCTC RDP website – a premium cloud infrastructure platform. The codebase has been significantly enhanced with an advanced glassmorphism design system, dynamic terminal dashboard, and comprehensive authentication flow.
 
 ## Key Enhancements
 

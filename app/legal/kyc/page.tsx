@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "KYC / Customer Verification Policy",
-  description: "Template KYC / customer verification policy for ZWS Cloud.",
+  description: "Template KYC / customer verification policy for IRCTC RDP.",
 }
 
 export default function KYCPage() {

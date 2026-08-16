@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection } from "@/components/layout/legal-page"
 
 export const metadata: Metadata = {
   title: "Disclaimer",
-  description: "Template disclaimer for ZWS Cloud.",
+  description: "Template disclaimer for IRCTC RDP.",
 }
 
 export default function DisclaimerPage() {
@@ -13,7 +13,7 @@ export default function DisclaimerPage() {
         <p>
           All content on this website, including pricing, service descriptions,
           and infrastructure details, is provided as illustrative template
-          material. ZWS Cloud as presented here is a demonstration site; any
+          material. IRCTC RDP as presented here is a demonstration site; any
           specific figures, guarantees, certifications, or endorsements should
           be independently verified before relying on them commercially.
         </p>

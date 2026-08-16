@@ -10,7 +10,7 @@ import { homeFaqs } from "@/data/faqs"
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers to the most common questions about ZWS Cloud hosting, billing, support, and policies.",
+    "Answers to the most common questions about IRCTC RDP hosting, billing, support, and policies.",
 }
 
 const billingFaqs = [
@@ -35,7 +35,7 @@ const securityFaqs = [
   },
   {
     q: "Do you run scans or inspect customer workloads?",
-    a: "No. We do not inspect the contents of customer workloads. We monitor for network-level abuse and respond to reports received at abuse@zwscloud.example.",
+    a: "No. We do not inspect the contents of customer workloads. We monitor for network-level abuse and respond to reports received at abuse@irctcrdp.com.",
   },
   {
     q: "What compliance frameworks apply?",

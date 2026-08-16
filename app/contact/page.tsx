@@ -8,7 +8,7 @@ import { Mail, LifeBuoy, ShieldAlert } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with the ZWS Cloud team.",
+  description: "Get in touch with the IRCTC RDP team.",
 }
 
 const channels = [

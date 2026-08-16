@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Service Level Agreement",
-  description: "Template SLA for ZWS Cloud.",
+  description: "Template SLA for IRCTC RDP.",
 }
 
 export default function SLAPage() {
@@ -57,7 +57,7 @@ export default function SLAPage() {
       <LegalSection title="Claiming a credit">
         <p>
           Credits must be requested within 30 days of the incident by emailing{" "}
-          <a href="mailto:billing@zwscloud.example">billing@zwscloud.example</a>{" "}
+          <a href="mailto:billing@irctcrdp.com">billing@irctcrdp.com</a>{" "}
           with the affected service identifier and incident timeframe.
         </p>
       </LegalSection>

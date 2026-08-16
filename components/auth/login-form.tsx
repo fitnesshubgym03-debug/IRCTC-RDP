@@ -26,7 +26,7 @@ type FormState =
 // /api/auth/login and route on the response. The form already exposes
 // all the state transitions (idle -> submitting -> success | error).
 const DEMO_CREDENTIALS = {
-  email: "demo@zws.cloud",
+  email: "demo@irctcrdp.com",
   password: "Password123!",
 }
 
@@ -72,7 +72,7 @@ export function LoginForm() {
     } else {
       setState({
         status: "error",
-        message: "Invalid email or password. Try demo@zws.cloud / Password123!",
+        message: "Invalid email or password. Try demo@irctcrdp.com / Password123!",
       })
     }
   }

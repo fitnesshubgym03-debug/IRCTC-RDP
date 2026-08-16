@@ -8,7 +8,7 @@ import { CTASection } from "@/components/cta-section"
 export const metadata: Metadata = {
   title: "About",
   description:
-    "ZWS Cloud is building honest, operations-grade cloud infrastructure.",
+    "IRCTC RDP is building honest, operations-grade cloud infrastructure.",
 }
 
 const values = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="We&apos;re building the hosting company we&apos;d want to use."
-        description="ZWS Cloud is a focused infrastructure team. We prioritize stability, transparent pricing, and calm support."
+        description="IRCTC RDP is a focused infrastructure team. We prioritize stability, transparent pricing, and calm support."
       />
 
       <section className="py-16">
@@ -42,7 +42,7 @@ export default function AboutPage() {
           />
           <div className="flex flex-col gap-5 text-pretty text-base leading-relaxed text-muted-foreground">
             <p>
-              ZWS Cloud started with a simple observation: most hosting
+              IRCTC RDP started with a simple observation: most hosting
               companies optimize for marketing, not operations. We wanted an
               infrastructure provider that felt like a well-run platform team.
               So we built one.

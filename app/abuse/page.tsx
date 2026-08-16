@@ -11,7 +11,7 @@ import { ShieldAlert, Clock, FileText, Gavel } from "lucide-react"
 export const metadata: Metadata = {
   title: "Abuse Reporting & Data Retention",
   description:
-    "How to report abuse on the ZWS Cloud network and our data retention practices.",
+    "How to report abuse on the IRCTC RDP network and our data retention practices.",
 }
 
 const items = [

@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Template privacy policy for ZWS Cloud.",
+  description: "Template privacy policy for IRCTC RDP.",
 }
 
 export default function PrivacyPage() {
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <LegalPageLayout title="Privacy Policy" lastUpdated="January 1, 2026">
       <LegalSection title="Overview">
         <p>
-          This Privacy Policy describes how ZWS Cloud collects, uses, and
+          This Privacy Policy describes how IRCTC RDP collects, uses, and
           protects personal data. It applies to our website and the services
           you access through it.
         </p>
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
       <LegalSection title="Contact">
         <p>
           For privacy inquiries, email{" "}
-          <a href="mailto:privacy@zwscloud.example">privacy@zwscloud.example</a>.
+          <a href="mailto:privacy@irctcrdp.com">privacy@irctcrdp.com</a>.
         </p>
       </LegalSection>
     </LegalPageLayout>

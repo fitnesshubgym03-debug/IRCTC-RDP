@@ -3,7 +3,7 @@ import { LegalPageLayout, LegalSection, LegalList } from "@/components/layout/le
 
 export const metadata: Metadata = {
   title: "Acceptable Use Policy",
-  description: "Template Acceptable Use Policy for ZWS Cloud.",
+  description: "Template Acceptable Use Policy for IRCTC RDP.",
 }
 
 export default function AUPPage() {
@@ -12,7 +12,7 @@ export default function AUPPage() {
       <LegalSection title="Scope">
         <p>
           This Acceptable Use Policy (AUP) applies to all customers and end
-          users of ZWS Cloud services. Violations may result in suspension or
+          users of IRCTC RDP services. Violations may result in suspension or
           termination of affected services.
         </p>
       </LegalSection>
@@ -63,7 +63,7 @@ export default function AUPPage() {
       <LegalSection title="Reporting abuse">
         <p>
           Report abuse to{" "}
-          <a href="mailto:abuse@zwscloud.example">abuse@zwscloud.example</a>. See
+          <a href="mailto:abuse@irctcrdp.com">abuse@irctcrdp.com</a>. See
           also our Abuse Reporting & Data Retention page.
         </p>
       </LegalSection>

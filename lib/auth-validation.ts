@@ -64,7 +64,7 @@ export function scorePassword(pw: string): PasswordStrength {
 
 /** A list of demo emails that simulate "already registered" errors. */
 export const TAKEN_EMAILS = new Set([
-  "taken@zws.cloud",
-  "used@zws.cloud",
-  "admin@zws.cloud",
+  "taken@irctcrdp.com",
+  "used@irctcrdp.com",
+  "admin@irctcrdp.com",
 ])

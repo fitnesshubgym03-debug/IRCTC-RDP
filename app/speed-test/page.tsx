@@ -111,9 +111,6 @@ export default function Page() {
               <h1 className="text-balance text-5xl font-semibold tracking-tight sm:text-7xl">Measure the route before you deploy.</h1>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">Run an animated India edge diagnostic across the IRCTC RDP route map.</p>
             </div>
-            <div className="glass flex w-fit items-center gap-2 rounded-full px-3 py-2 text-xs text-muted-foreground">
-              <span className="size-2 rounded-full bg-emerald-400" /> SIMULATED RESULT
-            </div>
           </div>
 
           <div className="glass glass-strong relative mt-12 overflow-hidden rounded-3xl p-5 sm:p-8">
@@ -133,13 +130,13 @@ export default function Page() {
                 </div>
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-                <Radio className="size-3 text-emerald-400" /> DEMO ROUTE / {currentRoute.toUpperCase()}
+                <Radio className="size-3 text-emerald-400" /> ROUTE / {currentRoute.toUpperCase()}
               </div>
             </div>
 
             <div className="mt-10 rounded-2xl border border-border/70 bg-background/40 p-4 sm:p-5">
               <div className="flex items-center justify-between gap-3 font-mono text-xs">
-                <span className={running ? "text-accent" : "text-muted-foreground"}>{running ? stages[stage] : done ? "Route diagnostic complete." : "Ready to initialize demo route."}</span>
+                <span className={running ? "text-accent" : "text-muted-foreground"}>{running ? stages[stage] : done ? "Route diagnostic complete." : "Ready to initialize route."}</span>
                 <span className="text-muted-foreground">{progress}%</span>
               </div>
               <div className="mt-4 h-2 overflow-hidden rounded-full bg-muted">
@@ -164,8 +161,7 @@ export default function Page() {
               <ResultCard label="UPLOAD" value={upload} suffix=" Tbps" icon={<Network className="size-5" />} active={done} />
             </div>
 
-            {done && <div className="mt-5 flex items-center gap-2 rounded-xl border border-emerald-400/20 bg-emerald-400/5 px-4 py-3 text-xs text-emerald-300"><CheckCircle2 className="size-4" /> ROUTE READY <span className="text-muted-foreground">/ simulated interface state</span></div>}
-            <div className="mt-6 rounded-xl border border-accent/20 bg-accent/5 p-4 text-xs leading-relaxed text-muted-foreground"><span className="font-mono font-semibold text-accent">SIMULATED RESULT</span><br />Results are simulated for demonstration purposes and do not represent an actual measurement of your internet connection. Actual internet performance varies by connection, location and network conditions.</div>
+            {done && <div className="mt-5 flex items-center gap-2 rounded-xl border border-emerald-400/20 bg-emerald-400/5 px-4 py-3 text-xs text-emerald-300"><CheckCircle2 className="size-4" /> ROUTE READY</div>}
           </div>
         </Container>
       </main>

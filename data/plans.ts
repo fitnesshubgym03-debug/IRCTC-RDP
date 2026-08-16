@@ -126,3 +126,42 @@ export const billingCycleLabel: Record<BillingCycle, string> = {
   quarterly: "Quarterly (save 5%)",
   annual: "Annual (save 17%)",
 }
+
+export const billingCycleMonths: Record<BillingCycle, number> = {
+  monthly: 1,
+  quarterly: 3,
+  annual: 12,
+}
+
+export const deployRegions = [
+  "Mumbai (BOM)",
+  "Delhi (DEL)",
+  "Bengaluru (BLR)",
+  "Hyderabad (HYD)",
+] as const
+
+export const osImages = [
+  "Windows Server 2022",
+  "Windows Server 2019",
+  "Windows 11 Pro",
+  "Ubuntu 24.04 LTS",
+  "Debian 12",
+] as const
+
+export function getPlanById(id: string | null | undefined): Plan | undefined {
+  if (!id) return undefined
+  return plans.find((plan) => plan.id === id)
+}
+
+export function isBillingCycle(value: unknown): value is BillingCycle {
+  return value === "monthly" || value === "quarterly" || value === "annual"
+}
+
+/** Total INR charged for the full billing cycle, discounts applied and rounded. */
+export function priceForCycle(plan: Plan, cycle: BillingCycle): number {
+  return Math.round(plan.priceINR * billingCycleMultiplier[cycle])
+}
+
+export function formatINR(amount: number): string {
+  return `₹${amount.toLocaleString("en-IN")}`
+}

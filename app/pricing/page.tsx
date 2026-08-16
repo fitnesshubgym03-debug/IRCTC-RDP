@@ -4,6 +4,7 @@ import { SiteShell } from "@/components/layout/site-shell"
 import { PageHeader } from "@/components/layout/page-header"
 import { Container } from "@/components/layout/container"
 import { PlanCard } from "@/components/plans/plan-card"
+import { CpuLogo } from "@/components/plans/cpu-logo"
 import { SectionHeader } from "@/components/layout/section-header"
 import { CTASection } from "@/components/cta-section"
 import { FAQAccordion } from "@/components/faq-accordion"
@@ -48,11 +49,14 @@ export default function PricingPage() {
 
       <section className="py-12 sm:py-16">
         <Container className="flex flex-col gap-10">
-          <SectionHeader
-            eyebrow="Intel platform"
-            title="INTEL"
-            description="Reliable performance for fast, focused remote workflows."
-          />
+          <div className="flex flex-col gap-5">
+            <CpuLogo brand="Intel" priority className="h-12 self-start sm:h-14" />
+            <SectionHeader
+              eyebrow="Intel platform"
+              title="INTEL XEON"
+              description="Reliable performance for fast, focused remote workflows."
+            />
+          </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {intelPlans.map((plan) => (
               <PlanCard key={plan.id} plan={plan} />
@@ -70,6 +74,7 @@ export default function PricingPage() {
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
                 <Cpu className="size-4" /> Premium CPU platform
               </div>
+              <CpuLogo brand="Ryzen" className="h-12 self-start sm:h-14" />
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
                 AMD Ryzen 9 9950X3D
               </h2>

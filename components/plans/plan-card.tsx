@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight, Check, Cpu, HardDrive, Network, ShieldCheck, WalletCards } from "lucide-react"
 import type { Plan } from "@/data/plans"
 import { Button } from "@/components/ui/button"
+import { CpuLogo } from "@/components/plans/cpu-logo"
 import { cn } from "@/lib/utils"
 
 export function PlanCard({
@@ -31,9 +32,11 @@ export function PlanCard({
         </div>
       )}
 
-      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-        {isRyzen ? <Cpu className="size-3.5 text-amber-300" /> : <Cpu className="size-3.5 text-accent" />}
-        {plan.platform}
+      <div className="flex items-center gap-2.5">
+        <CpuLogo brand={isRyzen ? "Ryzen" : "Intel"} className="h-7 sm:h-8" />
+        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          {isRyzen ? "Ryzen 9 9950X3D" : "Intel Xeon"}
+        </span>
       </div>
       <h3 className="mt-4 text-2xl font-semibold tracking-tight">{plan.name}</h3>
       <p className="mt-1 min-h-10 text-sm leading-6 text-muted-foreground">{plan.tagline}</p>

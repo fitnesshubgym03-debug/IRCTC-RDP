@@ -67,10 +67,11 @@ export async function releaseIp(db: Pool, ipId: number): Promise<void> {
 export async function getReservedByJobResult(db: Pool, result: string | null): Promise<IpAllocation | null> {
   if (!result) return null;
   try {
-    const parsed = JSON.parse(result) as { ipId?: number };
+    // The column is JSON type: mysql2 returns an already-parsed object.
+    const parsed = (typeof result === "string" ? JSON.parse(result) : result) as { ipId?: number };
     if (!parsed.ipId) return null;
     const [rows] = await db.query<import("mysql2/promise").RowDataPacket[]>(
-      "SELECT id, ipv4, gateway, prefix_len, dns_primary, dns_secondary FROM ip_addresses WHERE id = ? LIMIT 1",
+      "SELECT id, ipv4, gateway, prefix_len, dns_primary, dns_secondary, status FROM ip_addresses WHERE id = ? LIMIT 1",
       [parsed.ipId],
     );
     const row = rows[0];

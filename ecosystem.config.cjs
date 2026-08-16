@@ -1,0 +1,41 @@
+/** pm2 process definitions:  pnpm pm2 startOrReload ecosystem.config.cjs */
+module.exports = {
+  apps: [
+    {
+      name: "irctcrdp-frontend",
+      cwd: __dirname + "/apps/frontend",
+      script: "pnpm",
+      args: "start",
+      env: { NODE_ENV: "production", PORT: "3000" },
+      instances: 1,
+      autorestart: true,
+      max_restarts: 10,
+      restart_delay: 3000,
+      time: true,
+    },
+    {
+      name: "irctcrdp-backend",
+      cwd: __dirname + "/apps/backend",
+      script: "node",
+      args: "--env-file=.env dist/src/server.js",
+      env: { NODE_ENV: "production" },
+      instances: 1,
+      autorestart: true,
+      max_restarts: 10,
+      restart_delay: 3000,
+      time: true,
+    },
+    {
+      name: "irctcrdp-provisioner",
+      cwd: __dirname + "/services/provisioner",
+      script: "node",
+      args: "--env-file=.env dist/src/server.js",
+      env: { NODE_ENV: "production" },
+      instances: 1,
+      autorestart: true,
+      max_restarts: 10,
+      restart_delay: 3000,
+      time: true,
+    },
+  ],
+}

@@ -12,6 +12,18 @@ export async function requireAuth(req: FastifyRequest, reply: FastifyReply): Pro
   req.user = user;
 }
 
+/**
+ * Populates req.user when a valid session cookie is present, but never
+ * rejects anonymous visitors — used by routes that support guest access
+ * (checkout) while still enforcing ownership for signed-in users.
+ */
+export async function resolveUser(req: FastifyRequest): Promise<void> {
+  const token = (req.cookies as Record<string, string | undefined>)[SESSION_COOKIE];
+  if (!token) return;
+  const user = await getSessionUser(req.server.ctx.db, token);
+  if (user) req.user = user;
+}
+
 export async function requireAdmin(req: FastifyRequest, reply: FastifyReply): Promise<void> {
   await requireAuth(req, reply);
   if (reply.sent) return;

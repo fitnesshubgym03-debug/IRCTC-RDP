@@ -14,6 +14,8 @@ const envSchema = z.object({
   /** simulated: deterministic local stub for staging/e2e; test: Razorpay test mode; live: production. */
   RAZORPAY_MODE: z.enum(["simulated", "test", "live"]).default("test"),
   PROVISIONER_URL: z.string().url().default("http://127.0.0.1:4001"),
+  PROVISIONING_MAX_ATTEMPTS: z.coerce.number().int().positive().default(5),
+  PROVISIONING_RETRY_BASE_SECONDS: z.coerce.number().int().min(1).default(5),
   CORS_ORIGINS: z
     .string()
     .default("https://irctcrdp.com,https://www.irctcrdp.com")

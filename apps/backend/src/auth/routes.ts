@@ -14,7 +14,7 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
 
   app.post(
     "/v1/auth/register",
-    { config: { rateLimit: { max: 10, timeWindow: "1 minute" } } },
+    { config: { rateLimit: { max: config.NODE_ENV === "test" ? 1000 : 10, timeWindow: "1 minute" } } },
     async (req, reply) => {
       const parsed = registerSchema.safeParse(req.body);
       if (!parsed.success) {
@@ -48,7 +48,7 @@ export async function authRoutes(app: FastifyInstance): Promise<void> {
 
   app.post(
     "/v1/auth/login",
-    { config: { rateLimit: { max: 10, timeWindow: "1 minute" } } },
+    { config: { rateLimit: { max: config.NODE_ENV === "test" ? 1000 : 10, timeWindow: "1 minute" } } },
     async (req, reply) => {
       const parsed = loginSchema.safeParse(req.body);
       if (!parsed.success) {

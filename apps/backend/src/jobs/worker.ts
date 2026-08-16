@@ -104,7 +104,7 @@ async function processJob(app: FastifyInstance, job: JobRow): Promise<void> {
     if (job.attempts >= job.max_attempts) {
       await failJobWithRelease(app, job, message);
     } else {
-      await markJobRetrying(db, job.id, job.attempts, message);
+      await markJobRetrying(db, job.id, job.attempts, message, app.ctx.config.PROVISIONING_RETRY_BASE_SECONDS);
     }
   }
 }

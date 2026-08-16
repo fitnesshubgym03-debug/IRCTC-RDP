@@ -8,6 +8,7 @@ import { getPlan } from "../products/catalog.js";
 import { enqueueProvisioningJob } from "../jobs/queue.js";
 import { clientIp } from "../context.js";
 import { verifyPaymentSignature } from "../payments/razorpay.js";
+import { resolveUser } from "../security/guards.js";
 
 export interface OrderRow {
   id: string;
@@ -144,7 +145,7 @@ export async function markOrderPaid(
     await conn.commit();
     const alreadyPaid = (res as { affectedRows: number }).affectedRows === 0;
     if (!alreadyPaid) {
-      await enqueueProvisioningJob(ctx.db, orderId);
+      await enqueueProvisioningJob(ctx.db, orderId, "provision_server", ctx.config.PROVISIONING_MAX_ATTEMPTS);
       writeAudit(ctx.db, {
         actorType: "system",
         action: "order.paid",
@@ -188,6 +189,8 @@ export function orderToPublic(order: OrderRow): Record<string, unknown> {
 
 export async function ordersRoutes(app: FastifyInstance): Promise<void> {
   const ctx = app.ctx;
+
+  app.addHook("preHandler", resolveUser);
 
   app.post("/v1/orders", async (req, reply) => {
     const body = req.body as Record<string, unknown>;

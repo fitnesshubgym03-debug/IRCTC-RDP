@@ -15,11 +15,11 @@ export interface JobRow {
 }
 
 /** Idempotent enqueue — at most one job per order (unique order_id). */
-export async function enqueueProvisioningJob(db: Pool, orderId: string, jobType = "provision_server"): Promise<void> {
+export async function enqueueProvisioningJob(db: Pool, orderId: string, jobType = "provision_server", maxAttempts = 5): Promise<void> {
   await db.execute(
-    `INSERT IGNORE INTO provisioning_jobs (id, order_id, job_type, status)
-     VALUES (?, ?, ?, 'queued')`,
-    [randomUUID(), orderId, jobType],
+    `INSERT IGNORE INTO provisioning_jobs (id, order_id, job_type, status, max_attempts)
+     VALUES (?, ?, ?, 'queued', ?)`,
+    [randomUUID(), orderId, jobType, maxAttempts],
   );
 }
 
@@ -54,8 +54,8 @@ export async function markJobProcessing(db: Pool, jobId: string): Promise<boolea
   return (res as { affectedRows: number }).affectedRows === 1;
 }
 
-export async function markJobRetrying(db: Pool, jobId: string, attempts: number, error: string): Promise<void> {
-  const delaySeconds = Math.min(300, 5 * 2 ** attempts);
+export async function markJobRetrying(db: Pool, jobId: string, attempts: number, error: string, retryBaseSeconds = 5): Promise<void> {
+  const delaySeconds = Math.min(300, retryBaseSeconds * 2 ** attempts);
   await db.execute(
     `UPDATE provisioning_jobs
      SET status = 'retrying', last_error = ?, next_run_at = DATE_ADD(NOW(), INTERVAL ? SECOND)

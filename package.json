@@ -17,6 +17,7 @@
     "migrate": "pnpm --filter @irctcrdp/backend migrate"
   },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.10"
   }
 }

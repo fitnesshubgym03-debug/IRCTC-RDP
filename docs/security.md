@@ -5,7 +5,7 @@ Status: reviewed 2026-08-16 after monorepo cutover and test suite (33 tests) wen
 ## Verified
 
 - **No secrets in the frontend**: `apps/frontend/.env.local` contains only
-  `NEXT_PUBLIC_API_URL=https://api.irctcrdp.com`. Build grep for `MYSQL_URL`, `irctcrdp_2026_secure`,
+  `NEXT_PUBLIC_API_URL=https://api.irctcrdp.com`. Build grep for `MYSQL_URL`, `<db-password>`,
   `simulated_secret` → 0 matches. Frontend never receives database, internal, or provisioning secrets.
 - **Pricing is server-authoritative**: the client sends only `planId`/`region`/`os`/`billingCycle`;
   `amountINR` is computed in the backend and sent to Razorpay. Tampering with client payloads cannot

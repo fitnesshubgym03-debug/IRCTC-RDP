@@ -4,6 +4,7 @@ export const siteConfig = {
   description:
     "Fast, reliable RDP infrastructure for railway booking workflows, remote operations, and always-on access.",
   url: "https://irctcrdp.com",
+  buildVersion: "2026-08-16 · 70f83bc",
   contact: {
     email: "hello@irctcrdp.com",
     support: "support@irctcrdp.com",

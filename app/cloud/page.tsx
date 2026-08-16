@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const features = [
   { icon: CloudCog, title: "API-driven platform", description: "Programmatic control over every resource via a clean REST API." },
   { icon: Network, title: "Private networking", description: "Low-latency interconnects between your cloud instances within a region." },
-  { icon: Layers, title: "Multiple instance sizes", description: "From 1 vCPU micro instances to 32 vCPU compute-optimized builds." },
+  { icon: Layers, title: "Fixed instance sizes", description: "Eight fixed Intel Xeon and AMD Ryzen 9 9950X3D tiers with predictable specs and pricing." },
   { icon: Workflow, title: "Automated scaling", description: "Horizontal scaling with health checks and predictable rollouts." },
   { icon: GitBranch, title: "Infrastructure as code", description: "Terraform provider and CLI workflows for reproducible environments." },
   { icon: Cpu, title: "Compute optimized", description: "Dedicated-core instance classes for consistent performance profiles." },
@@ -41,7 +41,7 @@ export default function CloudPage() {
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg">
-            <Link href="/configure">Configure a cloud instance</Link>
+            <Link href="/pricing">Browse RDP plans</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
             <Link href="/contact">Talk to an engineer</Link>

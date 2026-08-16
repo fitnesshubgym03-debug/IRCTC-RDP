@@ -19,6 +19,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   // Only return fields that are safe to expose to the browser.
   return NextResponse.json({
     id: order.id,
+    planId: order.planId,
     planName: order.planName,
     platform: order.platform,
     region: order.region,

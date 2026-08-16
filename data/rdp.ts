@@ -1,9 +1,3 @@
-export const rdpPlans = [
-  { id: "starter", name: "Signal Starter", price: 499, ram: "4 GB", cpu: "2 vCPU", storage: "60 GB NVMe", bandwidth: "1 TB", location: "Mumbai", badge: "Fast entry" },
-  { id: "express", name: "Express Desk", price: 899, ram: "8 GB", cpu: "4 vCPU", storage: "100 GB NVMe", bandwidth: "3 TB", location: "Delhi", badge: "Most booked" },
-  { id: "premium", name: "Priority Cabin", price: 1499, ram: "16 GB", cpu: "6 vCPU", storage: "180 GB NVMe", bandwidth: "6 TB", location: "Mumbai", badge: "Power user" },
-]
-
 export const locations = [
   { city: "Mumbai", code: "BOM-01", latency: "8–14 ms", status: "Operational" },
   { city: "Delhi", code: "DEL-01", latency: "12–19 ms", status: "Operational" },

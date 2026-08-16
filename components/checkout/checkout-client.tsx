@@ -140,18 +140,18 @@ export function CheckoutClient() {
             })
             const verifyData = await verifyRes.json()
             if (verifyRes.ok && verifyData.status === "paid") {
-              router.push(`/order/${data.orderId}`)
+              router.push(`/order/success?order=${data.orderId}`)
             } else {
-              router.push(`/order/${data.orderId}`)
+              router.push(`/order/success?order=${data.orderId}`)
             }
           } catch {
-            router.push(`/order/${data.orderId}`)
+            router.push(`/order/success?order=${data.orderId}`)
           }
         },
         modal: {
           ondismiss: () => {
             setSubmitting(false)
-            router.push(`/order/${data.orderId}`)
+            router.push(`/order/success?order=${data.orderId}`)
           },
         },
       })

@@ -36,7 +36,7 @@ export default function VPSPage() {
       >
         <div className="flex flex-wrap gap-3">
           <Button asChild size="lg">
-            <Link href="/configure">Configure custom VPS</Link>
+            <Link href="/rdp-plans">Browse RDP plans</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
             <Link href="/pricing">Compare pricing</Link>

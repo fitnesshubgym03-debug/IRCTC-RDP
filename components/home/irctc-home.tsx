@@ -8,7 +8,6 @@ import { plans } from "@/data/plans"
 // Curated highlights for the homepage; the full catalog lives on /pricing.
 const featuredPlans = [
   plans.find((plan) => plan.id === "intel-6c-16gb"),
-  plans.find((plan) => plan.id === "intel-8c-32gb"),
   plans.find((plan) => plan.id === "ryzen-6c-16gb"),
 ].filter((plan): plan is (typeof plans)[number] => Boolean(plan))
 

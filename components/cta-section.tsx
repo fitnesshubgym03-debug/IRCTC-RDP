@@ -18,13 +18,13 @@ export function CTASection() {
                 Deploy in minutes. Scale with confidence.
               </h2>
               <p className="mt-3 text-pretty text-muted-foreground sm:text-lg">
-                Spin up a VPS, configure a custom build, or talk with our team
-                about enterprise-grade infrastructure.
+                Pick one of eight fixed Intel Xeon or AMD Ryzen 9 9950X3D plans,
+                or talk with our team about enterprise-grade infrastructure.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild size="lg" className="gap-1.5">
-                <Link href="/configure">
+                <Link href="/pricing">
                   Deploy now
                   <ArrowRight className="h-4 w-4" />
                 </Link>

@@ -57,6 +57,9 @@ export function Footer() {
           <p>
             High-Speed Remote Desktop Infrastructure · Built for India-first workflows.
           </p>
+          <p className="font-mono text-[10px] uppercase tracking-wider">
+            Build {siteConfig.buildVersion}
+          </p>
         </div>
       </Container>
     </footer>

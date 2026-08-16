@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import useSWR from "swr"
-import { CheckCircle2, Clock3, ExternalLink, RefreshCw, XCircle } from "lucide-react"
+import { CheckCircle2, Clock3, ExternalLink, RefreshCw, ServerCog, XCircle } from "lucide-react"
 import { Container } from "@/components/layout/container"
 import { Button } from "@/components/ui/button"
 import { formatINR } from "@/data/plans"
 
 type OrderResponse = {
   id: string
+  planId: string
   planName: string
   region: string
   osImage: string
@@ -128,25 +129,42 @@ export function OrderStatus({ orderId }: { orderId: string }) {
 
         <div className="flex flex-wrap gap-3 border-t border-border bg-background/30 p-6">
           {data.status === "paid" && (
-            <Button asChild>
-              <Link href="/dashboard">
-                Open dashboard <ExternalLink data-icon="inline-end" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap items-center gap-3 border-t border-border bg-background/30 p-6">
+              <div className="flex items-center gap-2 text-sm text-accent">
+                <ServerCog className="size-4 animate-pulse" />
+                Provisioning your RDP server…
+              </div>
+              <div className="ml-auto flex flex-wrap gap-3">
+                <Button asChild>
+                  <Link href="/dashboard">
+                    Open dashboard <ExternalLink data-icon="inline-end" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           )}
           {data.status === "pending" && (
-            <Button variant="outline" onClick={() => mutate()}>
-              Refresh status <RefreshCw data-icon="inline-end" />
-            </Button>
+            <div className="flex flex-wrap gap-3 border-t border-border bg-background/30 p-6">
+              <Button variant="outline" onClick={() => mutate()}>
+                Check payment status <RefreshCw data-icon="inline-end" />
+              </Button>
+            </div>
           )}
           {data.status === "failed" && (
-            <Button asChild>
-              <Link href="/pricing">Choose a plan and retry</Link>
-            </Button>
+            <div className="flex flex-wrap gap-3 border-t border-border bg-background/30 p-6">
+              <Button asChild>
+                <Link href={`/checkout?plan=${data.planId}`}>Try payment again</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/pricing">Choose another plan</Link>
+              </Button>
+            </div>
           )}
-          <Button asChild variant="ghost">
-            <Link href="/orders">View all orders</Link>
-          </Button>
+          <div className="flex flex-wrap gap-3 border-t border-border bg-background/30 p-6">
+            <Button asChild variant="ghost">
+              <Link href="/orders">View all orders</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </Shell>

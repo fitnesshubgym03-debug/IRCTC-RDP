@@ -1,6 +1,6 @@
 import type { FastifyInstance } from "fastify";
 import { randomUUID } from "node:crypto";
-import { paymentVerificationSchema } from "@irctcrdp/validation";
+import { createOrderSchema, paymentVerificationSchema } from "@irctcrdp/validation";
 import type { Ctx } from "../context.js";
 import { Errors } from "../errors.js";
 import { writeAudit } from "../audit/index.js";
@@ -157,6 +157,11 @@ export async function markOrderPaid(
     return { order: (await getOrderById(ctx, orderId))!, alreadyPaid };
   } catch (err) {
     await conn.rollback();
+    // Same Razorpay payment id captured on another order (e.g. a replay of a
+    // simulation/test payment) is not an error — report it as already processed.
+    if ((err as { code?: string }).code === "ER_DUP_ENTRY") {
+      return { order: (await getOrderById(ctx, orderId))!, alreadyPaid: true };
+    }
     throw err;
   } finally {
     conn.release();
@@ -193,27 +198,21 @@ export async function ordersRoutes(app: FastifyInstance): Promise<void> {
   app.addHook("preHandler", resolveUser);
 
   app.post("/v1/orders", async (req, reply) => {
-    const body = req.body as Record<string, unknown>;
-    if (!body || typeof body !== "object") return reply.code(422).send({ error: "Invalid request body" });
-    const { planId, region, os, billingCycle } = body as {
-      planId?: string;
-      region?: string;
-      os?: string;
-      billingCycle?: string;
-    };
-    if (
-      typeof planId !== "string" ||
-      typeof region !== "string" ||
-      typeof os !== "string" ||
-      typeof billingCycle !== "string"
-    ) {
-      return reply.code(422).send({ error: "planId, region, os and billingCycle are required" });
+    const parsed = createOrderSchema.safeParse(req.body);
+    if (!parsed.success) {
+      const issue = parsed.error.issues[0];
+      return reply.code(422).send({
+        error: issue ? issue.message : "Invalid order input",
+        code: "INVALID_ORDER_INPUT",
+        field: issue ? issue.path.join(".") : undefined,
+      });
     }
+    const { planId, region, os, billingCycle } = parsed.data;
     const order = await insertOrder(ctx, req.user ?? null, {
         planId,
         region,
         os,
-        billingCycle: billingCycle as "monthly" | "quarterly" | "annual",
+        billingCycle,
       });
       const payment = await getPaymentByOrderId(ctx, order.id);
       return reply.code(201).send({

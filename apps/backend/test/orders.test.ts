@@ -33,6 +33,19 @@ async function createOrder(payload: Record<string, unknown> = {}) {
 }
 
 describe("order payment verification", () => {
+  it("rejects an unknown region at creation before any payment is possible", async () => {
+    const res = await createOrder({ region: "singapore" });
+    expect(res.statusCode).toBe(422);
+    expect(res.json().code).toBe("INVALID_ORDER_INPUT");
+    const [rows] = await env.pool.query("SELECT COUNT(*) AS n FROM orders");
+    expect((rows as any[])[0].n).toBe(0);
+  });
+
+  it("rejects an unknown OS at creation", async () => {
+    const res = await createOrder({ os: "windows-95" });
+    expect(res.statusCode).toBe(422);
+  });
+
   it("marks an order paid with a valid signature and matching amount", async () => {
     const created = await createOrder();
     expect(created.statusCode).toBe(201);
@@ -149,5 +162,29 @@ describe("order payment verification", () => {
       },
     });
     expect(res.statusCode).toBe(404);
+  });
+
+  it("does not 500 when a payment id was already captured on another order", async () => {
+    const first = await createOrder({});
+    const second = await createOrder({});
+    const orderA = first.json().order;
+    const orderB = second.json().order;
+    const sharedPaymentId = makePaymentId(orderA.amountINR * 100);
+    const verify = (createRes: any) =>
+      env.app.inject({
+        method: "POST",
+        url: `/v1/orders/${createRes.json().order.id}/payment`,
+        payload: {
+          orderId: createRes.json().order.id,
+          razorpayOrderId: createRes.json().checkout.razorpayOrderId,
+          razorpayPaymentId: sharedPaymentId,
+          razorpaySignature: paymentSignature(createRes.json().checkout.razorpayOrderId, sharedPaymentId),
+        },
+      });
+    const resA = await verify(first);
+    expect(resA.statusCode).toBe(200);
+    const resB = await verify(second);
+    expect(resB.statusCode).toBe(200);
+    expect(resB.json().alreadyProcessed).toBe(true);
   });
 });

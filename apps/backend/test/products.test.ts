@@ -71,7 +71,7 @@ describe("GET /v1/products", () => {
       payload: { planId: "gpu-1x", region: "mumbai", os: "windows-server-2022", billingCycle: "monthly" },
     });
     expect(res.statusCode).toBe(422);
-    expect(res.json().code).toBe("UNPROCESSABLE_ENTITY");
+    expect(res.json().code).toBe("INVALID_ORDER_INPUT");
   });
 
   it("rejects a missing billing cycle", async () => {

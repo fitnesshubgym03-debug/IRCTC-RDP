@@ -62,7 +62,7 @@ export function ContactForm() {
       setForm({ name: "", email: "", company: "", phone: "", message: "" })
     } catch {
       toast.error("Unable to send message", {
-        description: "Please try again or email hello@zwscloud.example.",
+        description: "Please try again or email hello@irctcrdp.com.",
       })
     } finally {
       setSubmitting(false)

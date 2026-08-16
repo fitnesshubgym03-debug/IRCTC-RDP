@@ -2,8 +2,8 @@ import { AuthShell } from '@/components/auth/auth-shell'
 import { ResetPasswordForm } from '@/components/auth/reset-password-form'
 
 export const metadata = {
-  title: 'Reset Password | ZWS Cloud',
-  description: 'Create a new password for your ZWS Cloud account',
+  title: 'Reset Password | IRCTC RDP',
+  description: 'Create a new password for your IRCTC RDP account',
 }
 
 export default function ResetPasswordPage() {

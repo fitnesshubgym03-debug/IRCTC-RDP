@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/layout/section-header"
 
 export const metadata: Metadata = {
   title: "System Status",
-  description: "Live status for ZWS Cloud regions and services.",
+  description: "Live status for IRCTC RDP locations and services.",
 }
 
 const services = [

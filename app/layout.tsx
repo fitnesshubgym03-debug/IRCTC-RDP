@@ -18,33 +18,32 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zwscloud.example"),
+  metadataBase: new URL("https://irctcrdp.com"),
   title: {
-    default: "ZWS Cloud — Premium VPS & Cloud Hosting",
-    template: "%s · ZWS Cloud",
+    default: "IRCTC RDP — Fast Remote Booking Infrastructure",
+    template: "%s · IRCTC RDP",
   },
   description:
-    "ZWS Cloud delivers high-performance VPS, cloud hosting, and custom infrastructure with NVMe storage, DDoS protection, and transparent pricing.",
+    "Fast, reliable RDP infrastructure for railway booking workflows, remote operations, and always-on access.",
   keywords: [
-    "VPS hosting",
-    "cloud hosting",
-    "dedicated servers",
-    "NVMe VPS",
-    "ZWS Cloud",
-    "managed hosting",
+    "IRCTC RDP",
+    "railway booking RDP",
+    "India RDP",
+    "low latency RDP",
+    "remote desktop hosting",
   ],
-  authors: [{ name: "ZWS Cloud" }],
+  authors: [{ name: "IRCTC RDP" }],
   openGraph: {
-    title: "ZWS Cloud — Premium VPS & Cloud Hosting",
+    title: "IRCTC RDP — Fast Remote Booking Infrastructure",
     description:
-      "High-performance VPS, cloud hosting, and custom infrastructure with transparent pricing.",
+      "Fast, reliable RDP infrastructure with India locations, NVMe storage, and 24/7 support.",
     type: "website",
   },
   generator: "v0.app",
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a0b0d",
+  themeColor: "#070b13",
   width: "device-width",
   initialScale: 1,
 }

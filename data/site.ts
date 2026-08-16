@@ -1,15 +1,15 @@
 export const siteConfig = {
-  name: "ZWS Cloud",
-  shortName: "ZWS",
+  name: "IRCTC RDP",
+  shortName: "IRCTC",
   description:
-    "Premium VPS, cloud hosting, and custom infrastructure with transparent pricing.",
-  url: "https://zwscloud.example",
+    "Fast, reliable RDP infrastructure for railway booking workflows, remote operations, and always-on access.",
+  url: "https://irctcrdp.com",
   contact: {
-    email: "hello@zwscloud.example",
-    support: "support@zwscloud.example",
-    abuse: "abuse@zwscloud.example",
+    email: "hello@irctcrdp.com",
+    support: "support@irctcrdp.com",
+    abuse: "abuse@irctcrdp.com",
     phone: "+91 000 000 0000",
-    address: "Template address, review before production launch.",
+    address: "India-based support and low-latency RDP infrastructure.",
   },
   social: {
     twitter: "#",
@@ -19,45 +19,36 @@ export const siteConfig = {
 }
 
 export const primaryNav = [
-  { label: "VPS", href: "/vps" },
-  { label: "Cloud", href: "/cloud" },
-  { label: "Dedicated", href: "/dedicated" },
-  { label: "Configure", href: "/configure" },
+  { label: "RDP Plans", href: "/rdp-plans" },
+  { label: "Locations", href: "/locations" },
+  { label: "Speed Test", href: "/speed-test" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Features", href: "/features" },
-  { label: "Infrastructure", href: "/infrastructure" },
+  { label: "Support", href: "/support" },
 ]
 
 export const footerNav = {
   Products: [
-    { label: "VPS Hosting", href: "/vps" },
-    { label: "Cloud Hosting", href: "/cloud" },
-    { label: "Dedicated Servers", href: "/dedicated" },
-    { label: "Custom Configuration", href: "/configure" },
+    { label: "RDP Plans", href: "/rdp-plans" },
+    { label: "Locations", href: "/locations" },
+    { label: "Speed Test", href: "/speed-test" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Features", href: "/features" },
   ],
   Company: [
     { label: "About", href: "/about" },
-    { label: "Infrastructure", href: "/infrastructure" },
-    { label: "Contact", href: "/contact" },
     { label: "Status", href: "/status" },
-    { label: "Compliance", href: "/compliance" },
+    { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ],
   Support: [
     { label: "Help Center", href: "/support" },
     { label: "FAQ", href: "/faq" },
-    { label: "Client Area", href: "/client-area" },
-    { label: "Abuse Reports", href: "/abuse" },
+    { label: "Client Dashboard", href: "/dashboard" },
+    { label: "Orders", href: "/orders" },
   ],
   Legal: [
     { label: "Terms", href: "/legal/terms" },
     { label: "Privacy", href: "/legal/privacy" },
     { label: "Refund Policy", href: "/legal/refund" },
-    { label: "SLA", href: "/legal/sla" },
     { label: "AUP", href: "/legal/aup" },
-    { label: "KYC Policy", href: "/legal/kyc" },
-    { label: "Cookie Policy", href: "/legal/cookies" },
-    { label: "Disclaimer", href: "/legal/disclaimer" },
   ],
 }

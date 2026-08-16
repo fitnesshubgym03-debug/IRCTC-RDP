@@ -15,12 +15,12 @@ export function Logo({
         "flex items-center gap-2 text-foreground",
         className
       )}
-      aria-label="ZWS Cloud home"
+      aria-label="IRCTC RDP home"
     >
       <LogoMark className="h-7 w-7" />
       {withText && (
         <span className="text-base font-semibold tracking-tight">
-          ZWS<span className="text-muted-foreground"> Cloud</span>
+          IRCTC<span className="text-muted-foreground"> RDP</span>
         </span>
       )}
     </Link>

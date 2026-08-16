@@ -16,7 +16,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Support & Help Center",
-  description: "Documentation, tickets, and resources for ZWS Cloud customers.",
+  description: "Documentation, tickets, and resources for IRCTC RDP customers.",
 }
 
 const quickLinks = [

@@ -27,7 +27,7 @@ export const homeFaqs: FAQ[] = [
   },
   {
     q: "How is abuse handled?",
-    a: "We take abuse seriously and investigate every report. Reports can be submitted to abuse@zwscloud.example; see the Abuse Reporting page for procedures and response times.",
+    a: "We take abuse seriously and investigate every report. Reports can be submitted to abuse@irctcrdp.com; see the Abuse Reporting page for procedures and response times.",
   },
   {
     q: "Do you offer backups and snapshots?",

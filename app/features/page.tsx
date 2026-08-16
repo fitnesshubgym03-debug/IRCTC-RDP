@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Everything ZWS Cloud ships — from NVMe storage and DDoS protection to API-driven infrastructure automation.",
+    "Everything IRCTC RDP ships — from persistent Windows sessions and NVMe storage to India-first routes.",
 }
 
 const groups = [

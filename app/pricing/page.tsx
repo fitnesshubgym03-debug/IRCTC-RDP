@@ -12,7 +12,7 @@ import { FAQAccordion } from "@/components/faq-accordion"
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent pricing for ZWS Cloud VPS plans. Compare features side by side, upgrade anytime.",
+    "Transparent pricing for IRCTC RDP plans. Compare remote workspaces and deploy when ready.",
 }
 
 const comparisonRows: {

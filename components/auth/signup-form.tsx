@@ -108,7 +108,7 @@ export function SignupForm() {
         <p className="text-sm text-muted-foreground text-balance">
           We sent a confirmation link to{" "}
           <span className="font-medium text-foreground">{values.email}</span>.
-          Click it to finish setting up your ZWS Cloud account.
+          Click it to finish setting up your IRCTC RDP account.
         </p>
         <Button asChild className="mt-2 w-full">
           <Link href="/login">Continue to login</Link>

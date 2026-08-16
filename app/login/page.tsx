@@ -3,8 +3,8 @@ import { LoginForm } from '@/components/auth/login-form'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Sign In | ZWS Cloud',
-  description: 'Sign in to your ZWS Cloud account',
+  title: 'Sign In | IRCTC RDP',
+  description: 'Sign in to your IRCTC RDP account',
 }
 
 export default function LoginPage() {

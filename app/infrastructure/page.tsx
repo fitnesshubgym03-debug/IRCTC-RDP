@@ -10,7 +10,7 @@ import { Gauge, Network, ServerCog, ShieldCheck, Thermometer, Zap } from "lucide
 export const metadata: Metadata = {
   title: "Infrastructure & Data Centers",
   description:
-    "ZWS Cloud operates across Tier III+ facilities with redundant power, cooling, and network paths.",
+    "IRCTC RDP operates India-first infrastructure with redundant power, cooling, and network paths.",
 }
 
 const regions = [
